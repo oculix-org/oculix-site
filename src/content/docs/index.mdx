@@ -1,40 +1,215 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: OculiX
+description: The open-source reference for visual automation. Twenty years of lineage, MIT, trusted in production by 91+ organizations.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: The open-source reference for visual automation — twenty years of lineage, MIT-licensed, trusted in production by 91+ organizations worldwide.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/oculix-hero.png
+    alt: OculiX gecko mascot
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Get Started
+      link: /getting-started/installation/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/oculix-org/Oculix
       icon: external
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard, Code } from '@astrojs/starlight/components';
 
-## Next steps
+export const heroCode = `# Open the app, export today's report, save it — every morning at 8 AM.
+from oculix import click, type, wait
+
+click("file_menu.png")
+click("export_to_csv.png")
+wait("save_dialog.png", timeout=10)
+type("filename_field.png", "report_today.csv")
+click("save_button.png")`;
+
+<div class="oculix-code-window">
+  <div class="oculix-code-header">
+    <span class="oculix-code-dot r"></span>
+    <span class="oculix-code-dot y"></span>
+    <span class="oculix-code-dot g"></span>
+    <span class="oculix-code-title">daily_export.py — OculiX</span>
+  </div>
+  <Code code={heroCode} lang="py" />
+</div>
+
+## Trusted in production
+
+<div class="oculix-stats">
+  <div class="oculix-stat">
+    <span class="oculix-stat-value">91</span>
+    <span class="oculix-stat-label">enterprise organizations</span>
+  </div>
+  <div class="oculix-stat">
+    <span class="oculix-stat-value">14k+</span>
+    <span class="oculix-stat-label">clones every two weeks</span>
+  </div>
+  <div class="oculix-stat">
+    <span class="oculix-stat-value">3.4k</span>
+    <span class="oculix-stat-label">Maven downloads / quarter</span>
+  </div>
+  <div class="oculix-stat">
+    <span class="oculix-stat-value">MIT</span>
+    <span class="oculix-stat-label">open source, forever</span>
+  </div>
+</div>
+
+## What is OculiX?
+
+**OculiX is a visual automation IDE for everyone.** It drives any graphical interface by what it looks like — not by accessibility hooks, DOM selectors, or fragile XPaths. You point at what you see on screen, OculiX does the rest.
+
+You don't need to be a developer to use it. If you can take a screenshot, you can write your first OculiX script. If you _are_ a developer, you get a full scripting environment with Python syntax and JVM interop on top.
+
+Forked from the long-standing **SikuliX** project — and built in the same spirit: *visual automation should be simple, accessible, and yours.*
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="Pixel-perfect matching" icon="seti:image">
+    Find any region of any window by sample image. Resolution-aware, similarity-tunable, sub-pixel reliable.
+  </Card>
+  <Card title="OCR out of the box" icon="document">
+    Tesseract is **embedded** via Legerix — no manual install. PaddleOCR available as an opt-in HTTP server for high-accuracy CJK and complex layouts.
+  </Card>
+  <Card title="Cross-platform" icon="laptop">
+    Windows, macOS, Linux. One script runs everywhere — no platform-specific selectors.
+  </Card>
+  <Card title="Jython scripting" icon="seti:python">
+    Python 2.7 syntax with full JVM interop. Drop-in compatible with legacy SikuliX scripts.
+  </Card>
+  <Card title="Vision pipeline" icon="puzzle">
+    Modern computer-vision primitives (template, feature, contour) composable from the IDE or from code.
+  </Card>
+  <Card title="VNC · SSH · Android" icon="laptop">
+    Drive remote machines over VNC, open SSH tunnels from Java with zero external deps, control Android phones over ADB — all from the same API.
+  </Card>
 </CardGrid>
+
+## What people do with OculiX
+
+OculiX isn't built for one use case — it's built for **any** repetitive thing you do on a screen.
+
+<CardGrid>
+  <Card title="Automate tedious workflows" icon="rocket">
+    Export, convert, rename, fill the same form a hundred times. OculiX clicks where you'd click, types what you'd type.
+  </Card>
+  <Card title="Record demos & tutorials" icon="seti:video">
+    Reproduce the same on-screen sequence as many times as you need — for product demos, training videos, or onboarding decks.
+  </Card>
+  <Card title="Help people with accessibility needs" icon="heart">
+    Trigger custom workflows in any app from a single shortcut. No accessibility API required.
+  </Card>
+  <Card title="Migrate or mass-edit data" icon="seti:db">
+    Drive legacy software that has no API or CLI. If a human can click through it, OculiX can too.
+  </Card>
+  <Card title="Test apps the way users see them" icon="approve-check">
+    QA teams use OculiX too — visual regression, smoke tests, end-to-end flows. It's not the only thing it's built for, but it's a great fit when you want to test what users actually see.
+  </Card>
+  <Card title="Build your own RPA bot" icon="puzzle">
+    No vendor-lock-in, no SaaS subscription, no per-bot fee. Your script runs on your machine, period.
+  </Card>
+</CardGrid>
+
+## How it compares
+
+OculiX sits in the **process automation** space alongside RPA and visual automation tools. Here's how it lines up with two well-known commercial alternatives.
+
+<table class="oculix-compare">
+  <thead>
+    <tr>
+      <th>Capability</th>
+      <th class="oculix-col">OculiX</th>
+      <th>UiPath</th>
+      <th>Eggplant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>License & cost</td>
+      <td class="oculix-yes">MIT — free forever</td>
+      <td>Commercial · per-bot / per-user</td>
+      <td>Commercial · enterprise license</td>
+    </tr>
+    <tr>
+      <td>Self-hosted, fully local</td>
+      <td class="oculix-yes">100 % local, no cloud needed</td>
+      <td class="oculix-meh">Hybrid (Studio local, Orchestrator cloud)</td>
+      <td class="oculix-yes">On-prem available</td>
+    </tr>
+    <tr>
+      <td>Cross-platform</td>
+      <td class="oculix-yes">Windows · macOS · Linux</td>
+      <td class="oculix-meh">Studio is Windows-only</td>
+      <td class="oculix-yes">Windows · macOS · Linux</td>
+    </tr>
+    <tr>
+      <td>Approach</td>
+      <td>Pure visual — sees the screen</td>
+      <td>UI selectors (UIA / HTML) + visual fallback</td>
+      <td>Visual + IDE</td>
+    </tr>
+    <tr>
+      <td>Embedded OCR</td>
+      <td class="oculix-yes">Tesseract bundled</td>
+      <td class="oculix-meh">Multiple providers via marketplace</td>
+      <td class="oculix-yes">Built-in</td>
+    </tr>
+    <tr>
+      <td>Bundled IDE</td>
+      <td class="oculix-yes">Yes</td>
+      <td class="oculix-yes">Yes (Studio)</td>
+      <td class="oculix-yes">Yes</td>
+    </tr>
+    <tr>
+      <td>Scripting language</td>
+      <td>Jython (Python 2.7 + JVM)</td>
+      <td>VB.NET · C# · Python (limited)</td>
+      <td>SenseTalk</td>
+    </tr>
+    <tr>
+      <td>Best fit</td>
+      <td>Anyone — from non-tech users to enterprise teams</td>
+      <td>Enterprise RPA at scale</td>
+      <td>Visual automation & test for regulated industries</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="oculix-adopter-disclaimer">
+  Comparison based on each vendor's public documentation as of 2026. OculiX is independent and unaffiliated with UiPath (UiPath, Inc.) or Eggplant (Keysight Technologies).
+</p>
+
+## Adopted by teams at
+
+<div class="oculix-adopters">
+  <div class="oculix-adopter">IBM</div>
+  <div class="oculix-adopter">Qualcomm</div>
+  <div class="oculix-adopter">Tencent</div>
+  <div class="oculix-adopter">Alibaba</div>
+  <div class="oculix-adopter">Kakao</div>
+  <div class="oculix-adopter">Deutsche Bank</div>
+  <div class="oculix-adopter">PepsiCo</div>
+  <div class="oculix-adopter">Dassault Systèmes</div>
+  <div class="oculix-adopter">Kaspersky</div>
+  <div class="oculix-adopter">Synopsys</div>
+  <div class="oculix-adopter">Neo4j</div>
+  <div class="oculix-adopter">Zscaler</div>
+  <div class="oculix-adopter">Jack Henry</div>
+  <div class="oculix-adopter">RSA Security</div>
+  <div class="oculix-adopter">Bill.com</div>
+  <div class="oculix-adopter">University of Alberta</div>
+</div>
+<p class="oculix-adopter-disclaimer">
+  Organizations with verified OculiX downloads on Maven Central. Names listed for informational purposes only — no endorsement, partnership, or affiliation is implied. See the full <a href="/showcase/">adoption page</a>.
+</p>
+
+## Where to next?
+
+<LinkCard title="Install OculiX" href="/getting-started/installation/" description="Get up and running in under 5 minutes." />
+<LinkCard title="Your first script" href="/getting-started/first-script/" description="Click a button by looking at it. The OculiX hello world." />
+<LinkCard title="OCR & text recognition" href="/guides/ocr/" description="Read text on screen with Tesseract or PaddleOCR." />
+<LinkCard title="Enterprise support" href="/support/enterprise/" description="SLAs, vendor-of-record contracts, compliance." />
