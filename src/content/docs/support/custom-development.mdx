@@ -1,0 +1,182 @@
+---
+title: Custom feature development
+description: Sponsor focused development of a specific OculiX capability you need. The feature stays MIT and benefits everyone — your sponsorship just brings it forward in priority.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![MIT forever](https://img.shields.io/badge/License-MIT%20forever-green?style=flat-square)
+![Open design](https://img.shields.io/badge/Design-In%20the%20open-blue?style=flat-square)
+![Public roadmap](https://img.shields.io/badge/Roadmap-Public-success?style=flat-square)
+![Priority](https://img.shields.io/badge/Sponsor-Priority%20queue-blueviolet?style=flat-square)
+
+</div>
+
+OculiX has a public roadmap. Some teams need a specific capability **brought forward in time** — a new keyword, a new runner, a new connector, a performance improvement, a platform port. Custom development is the engagement where you sponsor the maintainer's time to focus on a defined deliverable.
+
+<Aside type="tip" title="The model in one line">
+  You don't buy a private feature. You buy **priority in the open roadmap**. The code ships MIT, in the public repo, available to everyone — including your competitors. What you get is **time, attention, and the feature in your hands faster than the natural roadmap would deliver it**.
+</Aside>
+
+## What we do not do
+
+This page exists partly to be clear about what this engagement is **not**, because the model surprises people coming from commercial software vendors.
+
+<Aside type="caution" title="What we don't do, and why">
+
+- ❌ **Private features** that aren't shipped to the public repo. OculiX is MIT, the codebase is one repository, there is no "Enterprise Edition" with extra modules.
+- ❌ **Closed-source modules** for one customer. Same reason.
+- ❌ **Sponsored deprecation** (removing features that bother you but help others). The roadmap stays driven by community + maintainer judgment, not by paid removal.
+- ❌ **Vendor branding** ("OculiX Pro, powered by AcmeCorp"). One name, one project, one community.
+
+These constraints are intentional. They make the project trustworthy for the **other 90 organizations** using it without paying, which is what makes the project relevant for **you** as well.
+
+</Aside>
+
+## What we do
+
+<CardGrid>
+  <Card title="New keyword or API" icon="puzzle">
+    A capability missing from OculiX's surface: a new `Region` method, a new pattern matcher, a new gesture, a new accessibility hook. Designed in the open, lands in the public API.
+  </Card>
+
+  <Card title="New runner" icon="seti:python">
+    Support for a scripting language not yet covered (TypeScript via Operix bridge, Kotlin, Groovy with first-class support, etc.) or a new execution mode (containerized, serverless, distributed).
+  </Card>
+
+  <Card title="New connector" icon="random">
+    Integration with a system that needs Java glue (a specific RPA orchestrator, a workflow engine, a specific OCR backend, a specific cloud screen-share API). Lands as a contributed module in the appropriate OculiX repo.
+  </Card>
+
+  <Card title="Performance improvement" icon="rocket">
+    A measurable speedup on a specific bottleneck (image matching on multi-monitor setups, JVM warmup, OCR throughput, headless mode startup time). Benchmarked before-and-after; the benchmark itself lands public.
+  </Card>
+
+  <Card title="Platform port" icon="laptop">
+    OS/arch combinations not yet covered (ARM Linux, BSD variants, restricted Windows environments). Includes setting up CI matrix coverage so the platform is supported long-term, not just shipped once.
+  </Card>
+
+  <Card title="Backport / stabilization" icon="approve-check">
+    A feature on `master` that you need backported to a stable release branch, with proper test coverage so the backport doesn't regress.
+  </Card>
+</CardGrid>
+
+## How it works — open design in 5 steps
+
+### 1. Conversation (free)
+
+You describe the capability you need, the use case behind it, the timeline that would matter to you. We discuss feasibility, scope, alternatives, and how it interacts with the existing OculiX architecture.
+
+If the feature is already on the roadmap and will land naturally in the next release, we tell you so — no engagement needed.
+
+### 2. Public issue with design proposal
+
+We open a **GitHub issue** in the OculiX repo describing the proposed feature, the design approach, and the rationale. **Your name (or your organization, if you want public credit) is attached as sponsor.** Anonymous sponsorship is also possible if you prefer.
+
+This is the "in the open" part: the community sees what's coming, can comment, can flag concerns. Sometimes a contributor proposes a simpler approach we hadn't thought of. That makes the feature better.
+
+### 3. Implementation on a feature branch
+
+We build the feature on a branch in the public repo. You see commits land in real-time. If you want, your team can review PRs as they go (we use draft PRs for visibility during development).
+
+### 4. Validation in your environment
+
+You test the feature in your environment against your real use case. If it doesn't behave as expected, we iterate. The acceptance criteria are defined upfront in the issue, so "done" is a documented state, not a subjective judgment.
+
+### 5. Merge to master, ship to release
+
+Once validated, the feature lands on `master`. It ships in the next OculiX release (or earlier as a hot-fix jar, see [Production support](/support/production-support/)). Your organization gets:
+
+- **Credit in the release notes**
+- **Co-Authored-By on the merge commit** (if you have contributors who participated)
+- **Public mention** on the [Showcase page](/showcase/) (with your approval)
+
+## Pricing model
+
+Custom development is priced as **focused time blocks**:
+
+- **Discovery + design** — fixed fee for the Phase 1 + Phase 2 deliverables (public design issue + acceptance criteria). Typically 1-2 weeks.
+- **Build + ship** — fixed or hourly depending on scope predictability. Discussed transparently in the engagement letter.
+
+We don't sell maintainer "hours" abstractly. We sell **a feature with a defined state of "done"**, with milestones tied to that state.
+
+## Examples (anonymized)
+
+<CardGrid>
+  <Card title="Healthcare org sponsored the PaddleOCR integration" icon="seti:image">
+    A healthcare provider needed accurate OCR on Asian-language documents. Tesseract wasn't sufficient. They sponsored the **PaddleOCR HTTP server integration** as an opt-in backend. Shipped as `paddleocr-server` companion repo plus an OculiX configuration toggle. Now available to everyone.
+  </Card>
+
+  <Card title="Bank sponsored async ADB device support" icon="seti:db">
+    A bank running mobile UI tests at scale needed asynchronous ADB device operations to parallelize their suite. They sponsored the **async ADBDevice API**. Shipped in OculiX 3.0.2 as `ADBDevice.swipeAsync()` and friends. Their suite went from 90 minutes to 18 minutes.
+  </Card>
+
+  <Card title="Government agency sponsored MCP audit journal" icon="document">
+    A government agency required tamper-evident logging of every automated action. They sponsored the **MCP server module with Ed25519-signed, SHA-256-chained JSONL audit journal**. Shipped as a separate module. Now used by multiple regulated-sector adopters.
+  </Card>
+
+  <Card title="Manufacturing group sponsored multi-monitor matching" icon="laptop">
+    A factory floor with 6-monitor operator stations needed reliable pattern matching across the full virtual desktop. They sponsored the **multi-monitor coordinate normalization** rewrite. Shipped in OculiX 3.0.0 as `Screen.all()` returning a unified search region.
+  </Card>
+</CardGrid>
+
+## Frequently asked questions
+
+### Can we get a private feature?
+
+No. Every feature OculiX ships is MIT, public, available to everyone. If you need a private capability that genuinely can't be public (because it embeds proprietary IP), that's outside what OculiX engagements cover — you'd need to maintain a fork yourself.
+
+### Why this model?
+
+Because OculiX's value is **the trust that nothing is hidden**. If we shipped private features for paying customers, the public version would become a "lite" variant, which is the opposite of MIT-OSS philosophy. The "free version is the same version" guarantee is what makes 91+ organizations adopt OculiX.
+
+### What if we don't want our name public?
+
+Sponsorship can be **anonymous**. The design issue will reference "sponsored by an OculiX user" without naming you. The merge commit Co-Authored-By can be omitted. The Showcase page mention is opt-in.
+
+### What guarantee do we have the feature will be merged?
+
+The acceptance criteria are defined upfront in the public issue. As long as the feature meets those criteria, it merges. **The risk of "not merged" is mitigated by Phase 1** — we won't take the engagement if there's architectural reason the feature can't land cleanly. Pre-discussion is precisely what catches this.
+
+### What about IP?
+
+The feature is MIT. **Your sponsorship doesn't give you IP ownership** — you can't sell it as your proprietary code. You CAN reference your sponsorship publicly (releases, marketing, conferences). Most sponsors find this a fair trade.
+
+### What if the community pushes back on the design?
+
+We listen. The "open design" step is exactly there to surface objections early. If the community proposes a better approach, we adopt it (with your input). If they object to the feature existing at all, we have an honest conversation about whether to proceed. So far, **no engagement has been blocked by community pushback** — but the option exists.
+
+### How long does a typical engagement run?
+
+Discovery + design: 1-2 weeks.
+Build + ship: typically 2-8 weeks depending on complexity.
+Total: 3-10 weeks for most features.
+
+A small keyword: 3-4 weeks total. A new runner or major performance work: 8-10 weeks. Architectural rework: case by case.
+
+### Can multiple organizations co-sponsor?
+
+Yes, and we encourage it for larger features. Multiple sponsors share the cost, all get the credit, the feature still lands MIT once. We coordinate the requirements gathering across sponsors via the design issue.
+
+### Do you take engagements for features you would have built anyway?
+
+Usually no — that would be sponsoring something already coming. But if your timeline is significantly tighter than ours and you need it brought forward, **the engagement is the time-shift, not the feature itself**. We're transparent about that pricing-wise.
+
+## Get in touch
+
+<CardGrid>
+  <LinkCard
+    title="Describe the feature you need"
+    description="A few lines about the capability you want, the use case driving it, and a rough timeline. We'll come back with a feasibility take within 48h."
+    href="mailto:contact@oculix.org?subject=Custom%20development%20inquiry"
+  />
+  <LinkCard
+    title="Browse the public roadmap first"
+    description="Your feature might already be coming. Check the public issues with the 'roadmap' label."
+    href="https://github.com/oculix-org/Oculix/labels/roadmap"
+  />
+</CardGrid>
+
+🦎

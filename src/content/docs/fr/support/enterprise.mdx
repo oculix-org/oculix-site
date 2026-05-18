@@ -1,0 +1,181 @@
+---
+title: Obtenir de l'aide
+description: Comment demander de l'aide pour OculiX — canaux communautaires, ce à quoi s'attendre, et la porte qu'on garde ouverte pour les organisations.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+OculiX est libre et open source sous MIT. Ce n'est pas conçu comme un produit commercial : pas de SaaS, pas de tracking d'usage, pas de SLA payant par défaut. Mais rien de tout ça ne veut dire **fermé** — si votre équipe utilise OculiX sérieusement, on aimerait le savoir, et on fera ce qu'on peut.
+
+<Aside type="tip" title="En une ligne">
+  Open source pour tous, vraie conversation pour les équipes. Pas de pipeline de vente, pas d'intake scripté, pas de funnel — juste un email qui est lu.
+</Aside>
+
+## Où poser ses questions
+
+<CardGrid>
+  <Card title="Rapports de bug" icon="error">
+    Crashs, régressions, comportement inattendu, docs cassées → ouvrez une issue sur [oculix-org/Oculix/issues](https://github.com/oculix-org/Oculix/issues).
+
+    Un bon rapport contient : un reproducteur minimal, attendu vs réel, environnement (OS / Java / version OculiX), et la stack trace. Le menu IDE **Help → Copy diagnostic info** récupère tout ça en un clic.
+  </Card>
+
+  <Card title="Questions & discussions" icon="comment-alt">
+    Pour les questions plus larges — « comment faire… ? », « quelle est la meilleure approche pour… ? », « OculiX est-il adapté à… ? » — utilisez [GitHub Discussions](https://github.com/oculix-org/Oculix/discussions). La communauté répond, et le mainteneur aussi quand le temps le permet.
+  </Card>
+
+  <Card title="Failles de sécurité" icon="warning">
+    Pour tout ce qui est sensible (bypass d'auth, RCE, fuite de credentials dans les logs), **n'ouvrez pas d'issue publique**. Utilisez le [signalement privé de vulnérabilité de GitHub](https://github.com/oculix-org/Oculix/security/advisories/new).
+
+    Politique complète dans [SECURITY.md](https://github.com/oculix-org/Oculix/blob/master/SECURITY.md). Accusé sous 48 h.
+  </Card>
+
+  <Card title="Votre équipe utilise OculiX au travail" icon="email">
+    Si une équipe, un département, ou une entreprise entière fait tourner OculiX en production et souhaite parler directement au mainteneur — un besoin spécifique, une question d'intégration, une influence sur la roadmap, ou juste dire bonjour — écrivez à [contact@oculix.org](mailto:contact@oculix.org) ou ouvrez une discussion.
+
+    Beaucoup des entreprises sur la [page Adoption](/fr/showcase/) ont découvert OculiX via le rapport de bug d'un seul ingénieur.
+  </Card>
+</CardGrid>
+
+## À quoi s'attendre
+
+OculiX est actuellement maintenu par une seule personne, sur son temps libre. Les chiffres réalistes de première réponse :
+
+| Vous signalez…                | Première réponse en…                                          |
+| ----------------------------- | -------------------------------------------------------------- |
+| Crash reproductible           | Quelques jours, souvent plus vite                              |
+| `FindFailed` reproductible    | Une semaine                                                    |
+| Demande de fonctionnalité     | Triagée en une semaine — délai d'implémentation très variable  |
+| Avis de sécurité              | Accusé sous 48 heures                                          |
+| Email d'une organisation      | Lu sous quelques jours, réponse sous une semaine               |
+
+<Aside type="note">
+  Les bugs majeurs reçoivent des correctifs le jour même quand ils sont reproductibles. Les bugs spéculatifs (« parfois ça ne clique pas ») prennent plus de temps parce qu'ils ont besoin d'un repro fiable d'abord.
+</Aside>
+
+## Services pour les équipes
+
+Six engagements dédiés, chacun avec sa propre page. Cliquez pour la portée, les livrables, les exemples et la FAQ.
+
+<CardGrid stagger>
+  <LinkCard
+    title="🚀 Support production"
+    description="Ligne directe vers le mainteneur avec un SLA de réponse écrit. Pour OculiX sur chemins critiques métier."
+    href="/fr/support/production-support/"
+  />
+  <LinkCard
+    title="🔄 Migration depuis RPA commercial"
+    description="Migration cadrée, prix fixe, depuis UiPath / Automation Anywhere / Blue Prism / TagUI. 5 phases, rapport écrit à la fin."
+    href="/fr/support/migration-from-rpa/"
+  />
+  <LinkCard
+    title="🧩 Développement de fonctionnalité sur mesure"
+    description="Sponsorisez le développement focalisé d'une capacité OculiX. La fonctionnalité reste MIT et profite à tous — votre sponsoring lui fait juste gagner du temps en priorité."
+    href="/fr/support/custom-development/"
+  />
+  <LinkCard
+    title="🛡️ Pack sécurité & conformité"
+    description="SBOM, couverture ASVS, indemnisation, énoncé d'architecture pour votre CISO et vos équipes achats."
+    href="/fr/support/security/"
+  />
+  <LinkCard
+    title="📚 Formation équipe"
+    description="De la demi-journée au multi-jours, à distance ou sur site, adapté à votre vrai stack. Pas un catalogue générique."
+    href="/fr/support/training/"
+  />
+  <LinkCard
+    title="📋 Revue d'architecture"
+    description="Une seconde paire d'yeux experts sur votre stratégie d'automation visuelle. Un appel, rapport écrit sous deux semaines, appel de suivi."
+    href="/fr/support/architecture-review/"
+  />
+</CardGrid>
+
+<Aside type="tip">
+  Si votre besoin ne rentre dans aucun de ces six patterns, écrivez quand même à [contact@oculix.org](mailto:contact@oculix.org). La réponse honnête est généralement « oui, voici comment » ou « oui, avec cette réserve » — pas « non ».
+</Aside>
+
+## Jusqu'où on peut aller pour une organisation
+
+OculiX est un petit projet, pas un éditeur. Mais « petit » ne veut pas dire « non » — ça veut dire que tout est au cas par cas, asynchrone, et se décide en conversation. Ce qui s'est réellement déjà passé :
+
+- **Un bug spécifique a été priorisé** parce qu'une équipe a expliqué l'impact en production dans une issue claire. C'est souvent suffisant.
+- **Une fonctionnalité a été développée** parce qu'une organisation a sponsorisé le temps du mainteneur pour la concentrer dessus. Pas de tier, pas de contrat — une discussion et un arrangement via GitHub Sponsors.
+- **Un audit / une formation sur mesure** a été organisé pour une équipe qui devait onboarder plusieurs ingénieurs en même temps. En dehors des cadres, convenu par email.
+- **Un correctif a été poussé sur `master`** plus vite que le cycle RC normal parce qu'un secteur régulé l'avait rencontré et fourni un repro propre.
+
+<Aside type="caution" title="Ce qu'on ne fera pas">
+- Signer un contrat formel vendor-of-record avec un service achats — il n'y a pas d'entité juridique derrière le projet pour ça aujourd'hui.
+- Promettre un SLA qu'on ne peut pas tenir avec un seul mainteneur.
+- Développer une fonctionnalité en privé sans qu'elle ré-atterrisse dans le projet public.
+</Aside>
+
+En bref : **si vous avez un vrai besoin, écrivez-nous avant de supposer que c'est impossible.** La réponse honnête est souvent « oui, voici comment » ou « oui, avec cette réserve » — pas « non ».
+
+## Ce que vous pouvez faire vous-même
+
+<CardGrid>
+  <Card title="Builder depuis les sources" icon="seti:c">
+    Si vous avez besoin d'un correctif déjà sur `master` mais pas encore publié :
+
+    ```bash
+    git clone https://github.com/oculix-org/Oculix.git
+    cd Oculix
+    mvn clean install -DskipTests
+    ```
+
+    Les fat-jars dans le `target/` de chaque module sont exactement ce qui est uploadé sur Maven Central à chaque release.
+  </Card>
+
+  <Card title="Forker et patcher" icon="github">
+    OculiX est sous licence MIT. Forkez-le, patchez le problème qui vous concerne, faites tourner votre propre build. Si le patch est généralement utile, ouvrez une PR upstream — c'est la contribution la plus rentable que vous puissiez faire au projet.
+  </Card>
+
+  <Card title="S'abonner aux releases" icon="bell">
+    Le moyen le plus rapide de savoir qu'un correctif est sorti : suivre le repo. **GitHub → Watch → Custom → Releases.** Vous recevez un email pour chaque nouvelle RC et stable.
+  </Card>
+</CardGrid>
+
+## Auditabilité & environnements régulés
+
+OculiX tourne entièrement sur votre machine. Rien ne phone home, aucune télémétrie, aucun analytics, pas d'auto-update. Le module optionnel serveur MCP écrit un journal d'audit JSONL signé Ed25519 et chaîné SHA-256 — conçu pour les environnements où chaque action doit être auditable.
+
+<CardGrid>
+  <Card title="Là où OculiX s'intègre bien" icon="approve-check">
+    - **Code source-available, auto-hébergé** sous licence permissive
+    - **Auditable de bout en bout** — vous pouvez lire chaque ligne qui tourne dans votre build
+    - **Pas de vendor lock-in** — vous le forkez le jour où le mainteneur disparaît
+    - **Audit trail signé** via le module MCP pour un logging tamper-evident
+  </Card>
+
+  <Card title="Une conversation préalable vaut le coup si…" icon="comment-alt">
+    - Si vos achats exigent un **contrat fournisseur signé**, parlons-en — la réponse aujourd'hui est informelle, mais ce n'est pas toujours « non ».
+    - Si vous avez besoin d'attestations **SOC 2 / HIPAA / FedRAMP**, le projet lui-même n'est pas certifié — mais son architecture (pas de télémétrie, pas de cloud, pas d'appel API tiers depuis le runtime) facilite son intégration dans un environnement certifié que vous contrôlez.
+  </Card>
+</CardGrid>
+
+Pour des packs de documentation procurement-grade, rendez-vous sur la page [Sécurité & conformité](/fr/support/security/) ou écrivez à [contact@oculix.org](mailto:contact@oculix.org).
+
+## Dire merci
+
+Si OculiX vous a fait gagner du temps et que vous voulez rendre la pareille, les choses les plus utiles sont :
+
+- Un bon rapport de bug quand vous en trouvez un
+- Une PR pour un correctif que vous avez déjà fait en local
+- Tester une RC sur une plateforme qu'on n'a pas
+- Traduire les chaînes d'UI dans votre langue
+- Nous autoriser à citer votre organisation sur la page Adoption
+
+<CardGrid>
+  <LinkCard
+    title="Sponsoriser sur GitHub"
+    description="Finance directement le temps du mainteneur. Chaque euro achète des heures focalisées sur OculiX."
+    href="https://github.com/sponsors/julienmerconsulting"
+  />
+  <LinkCard
+    title="Voir qui utilise déjà OculiX"
+    description="91+ organisations dont IBM, Qualcomm, Tencent, Deutsche Bank, US Navy."
+    href="/fr/showcase/"
+  />
+</CardGrid>
+
+On adorerait les deux — une entrée contributeur **et** une entrée sponsor. L'un ou l'autre est déjà une aide énorme.

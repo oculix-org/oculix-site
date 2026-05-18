@@ -427,3 +427,47 @@ body::after {
   border-color: var(--oculix-purple);
   color: var(--oculix-purple-bright);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Header CTA button — "Work with us" before the social icons
+   ───────────────────────────────────────────────────────────── */
+
+.oculix-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  margin-right: 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--oculix-cyan) 0%, var(--oculix-purple) 100%);
+  color: var(--oculix-navy-deep);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 1px 4px rgba(34, 211, 238, 0.25);
+}
+
+.oculix-cta-button:hover,
+.oculix-cta-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(34, 211, 238, 0.35);
+  filter: brightness(1.08);
+  color: var(--oculix-navy-deep);
+  text-decoration: none;
+}
+
+.oculix-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(34, 211, 238, 0.25);
+}
+
+/* Hide on small screens — the sidebar entry covers it there */
+@media (max-width: 50rem) {
+  .oculix-cta-button {
+    display: none;
+  }
+}

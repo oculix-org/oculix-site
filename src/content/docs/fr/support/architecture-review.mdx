@@ -1,0 +1,195 @@
+---
+title: Revue d'architecture
+description: Une seconde paire d'yeux experts sur votre stratégie d'automation visuelle. Un appel de cadrage, rapport écrit sous deux semaines, appel de suivi pour les questions.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![Format](https://img.shields.io/badge/Format-Appel%20%2B%20Rapport%20%2B%20Suivi-blue?style=flat-square)
+![Délai](https://img.shields.io/badge/D%C3%A9lai-2%20semaines-success?style=flat-square)
+![Livrable](https://img.shields.io/badge/Livrable-Rapport%20PDF%20%C3%A9crit-orange?style=flat-square)
+![Confidentialité](https://img.shields.io/badge/Confidentialit%C3%A9-NDA%20disponible-blueviolet?style=flat-square)
+
+</div>
+
+Avant d'engager un budget significatif sur OculiX — ou quand un setup existant paraît fragile et que vous voulez savoir pourquoi — une **revue d'architecture** structurée vous donne une seconde paire d'yeux experts sur votre stratégie d'automation visuelle. Le livrable est un **rapport écrit**, pas des slides, et il **vous appartient** indépendamment de ce que vous déciderez ensuite.
+
+<Aside type="tip" title="En une ligne">
+  Un appel de cadrage (gratuit), un cycle d'analyse (2 semaines), un rapport écrit (PDF, structuré, priorisé), un appel de suivi (45 min). Décidez de la suite avec de la vraie information plutôt qu'avec des espoirs.
+</Aside>
+
+## Pour qui c'est
+
+<CardGrid>
+  <Card title="Équipes prêtes à engager du budget" icon="approve-check">
+    Vous évaluez OculiX (ou le comparez à des alternatives) pour un déploiement significatif. Avant de valider l'architecture, vous voulez un avis technique indépendant.
+  </Card>
+
+  <Card title="Équipes avec des setups existants fragiles" icon="warning">
+    Votre déploiement OculiX (ou autre RPA) marche la plupart du temps, mais casse assez souvent pour être pénible. Vous suspectez une raison structurelle mais vous êtes dans le problème et ne voyez pas clair.
+  </Card>
+
+  <Card title="Équipes qui envisagent une migration" icon="random">
+    Vous êtes sur UiPath / Automation Anywhere / Blue Prism / TagUI et vous pesez si OculiX est la bonne destination. Vous voulez comprendre les implications structurelles avant de vous engager sur l'[engagement Migration](/fr/support/migration-from-rpa/).
+  </Card>
+
+  <Card title="Équipes qui repoussent les limites du scaling" icon="rocket">
+    Vous avez fait marcher OculiX pour une équipe, maintenant plusieurs équipes en veulent. Passer de 10 scripts à 1 000 fait émerger des questions architecturales qui n'existaient pas avant.
+  </Card>
+
+  <Card title="Équipes en secteurs régulés" icon="seti:lock">
+    Banque, défense, santé, gouvernement. Votre CISO / équipe risque pose des questions pointues sur OculiX et vous avez besoin d'une réponse crédible au-delà de « la doc dit que c'est sécurisé ».
+  </Card>
+
+  <Card title="Équipes qui heurtent des murs de performance" icon="seti:plan">
+    Des tests qui tournaient en 30 min prennent maintenant 4 heures. La mémoire croît sans borne. Les files CI s'engorgent. Vous suspectez le tuning, vous suspectez l'architecture, vous voulez savoir lequel.
+  </Card>
+</CardGrid>
+
+## Ce qui est couvert
+
+<CardGrid>
+  <Card title="Évaluation du stack" icon="seti:plan">
+    Inventaire de votre déploiement OculiX : versions, modules en usage, catalogue des scripts, points d'intégration, infrastructure de scheduling, setup de monitoring. Catalogue avec labels de sévérité pour les problèmes connus.
+  </Card>
+
+  <Card title="Revue des patterns" icon="seti:python">
+    Revue de scripts et helpers représentatifs pour distinguer les patterns qui scalent de ceux qui ne scalent pas. Anti-patterns courants signalés avec priorité de refactor recommandée.
+  </Card>
+
+  <Card title="Analyse de scaling" icon="rocket">
+    Votre charge actuelle, croissance projetée, goulots dans le chemin. Où l'exécution parallèle aide et où elle casse. Tuning JVM, isolation de process, orchestration CI.
+  </Card>
+
+  <Card title="Posture sécurité" icon="seti:lock">
+    Application de l'[architecture sécurité OculiX](/fr/support/security/) à votre déploiement spécifique. Considérations air-gap, gestion des secrets, audit trail (module MCP), supply chain (consommation SBOM).
+  </Card>
+
+  <Card title="Intégration CI/CD" icon="random">
+    Comment OculiX s'inscrit dans votre pipeline aujourd'hui. Où il ajoute du frottement, où il devrait s'intégrer plus profondément. Tradeoffs entre exécution en CI et jobs planifiés.
+  </Card>
+
+  <Card title="Monitoring & observabilité" icon="approve-check">
+    Ce que vous observez aujourd'hui, ce que vous devriez observer, quel outillage convient. Visibilité des modes d'échec, alerting, rétention d'audit, préparation au post-mortem.
+  </Card>
+</CardGrid>
+
+## Comment ça marche
+
+### 1. Appel de cadrage (gratuit, 30 min)
+
+On comprend votre contexte, les questions auxquelles vous voulez des réponses, et la profondeur qui colle à votre situation. La plupart des revues tombent dans l'un des 6 buckets ci-dessus, mais le focus réel est façonné par ce qui compte le plus pour vous. Si une préoccupation particulière domine (p. ex. « on est coincé sur une suite CI de 90 min, peut-on descendre à 30 ? »), la revue se concentre là.
+
+Aucun engagement à l'issue de cet appel — on proposera soit d'avancer, soit un engagement différent (p. ex. formation à la place), soit on décline si la revue d'architecture n'est pas le bon format.
+
+### 2. Collecte d'information (3-5 jours)
+
+Vous fournissez, sous NDA si besoin :
+
+- Accès lecture à votre repo de scripts OculiX (ou un échantillon représentatif)
+- Vos fichiers de configuration CI
+- Un appel de walkthrough (60-90 min) avec l'équipe qui opère OculiX au quotidien
+- Toute doc ops, runbook, post-mortem, capture de monitoring pertinent
+- Les questions auxquelles vous voulez des réponses, classées par priorité
+
+On n'a pas besoin d'accès aux systèmes de production — juste assez de matière pour comprendre l'architecture en profondeur.
+
+### 3. Analyse (5-8 jours)
+
+On travaille la matière, on reproduit les patterns pertinents dans un sandbox quand c'est possible, on benchmark là où des goulots sont suspectés, on rédige le rapport. On peut poser 1-2 questions de clarification brèves pendant cette phase mais surtout on travaille en autonomie.
+
+### 4. Rapport écrit (livré en fin de Semaine 2)
+
+Un document PDF structuré, typiquement 15-30 pages, couvrant :
+
+- **Résumé exécutif** (1 page) — top 5 constats, top 5 recommandations, en langage clair pour les non-ingénieurs
+- **État actuel** — votre déploiement décrit avec nos mots, pour que vous sachiez qu'on a compris correctement
+- **Failles & risques** — ce qui est structurellement fragile, ce qui va probablement casser dans certains scénarios
+- **Recommandations** — priorisées par ROI (impact / effort), avec étapes concrètes
+- **Roadmap d'implémentation** — par quoi attaquer en premier, deuxième, troisième, et combien de temps chaque étape prendra probablement
+- **Questions ouvertes** — ce qu'on n'a pas pu déterminer à partir de la matière et qui nécessite une décision de votre côté
+
+Le rapport vous **appartient**. Vous pouvez le partager en interne, l'utiliser dans des conversations budget, l'utiliser comme baseline pour un process de sélection vendeur. On ne conserve pas de droits dessus au-delà de la référence pour nos archives.
+
+### 5. Appel de suivi (45 min, inclus)
+
+Un walkthrough en direct du rapport avec les personnes de votre côté qui vont agir dessus. Q&A, clarifications, ajustements de priorisation selon des contraintes internes qu'on ne connaissait pas. **Aucun constat surprise révélé pendant l'appel** — tout ce qui est substantiel est déjà dans le rapport.
+
+Après cet appel, l'engagement est complet. Si vous voulez qu'on implémente les recommandations, c'est un engagement séparé ([Développement sur mesure](/fr/support/custom-development/) ou [Support production](/fr/support/production-support/) selon la portée).
+
+## Exemples (anonymisés)
+
+<CardGrid>
+  <Card title="Banque — speedup 40 % de la suite CI" icon="rocket">
+    Une banque exécutant 50 000 invocations OculiX par jour sur 12 workers CI a demandé : « pourquoi notre suite est-elle à 90 minutes ? ». La revue a identifié : le cold-start JVM qui dominait, pas de pré-load OpenCV, parallélisme sous-optimal sur les workers. Après avoir implémenté les 3 recommandations : 54 minutes. Les frais de la revue remboursés en minutes CI économisées sous 6 semaines.
+  </Card>
+
+  <Card title="Assurance — pré-audit sécurité" icon="seti:lock">
+    Un groupe d'assurance français préparant un audit sécurité interne a eu une revue de leur déploiement OculiX pour le comité d'audit. Le rapport couvrait : préparation air-gap, usage du journal d'audit, gestion des secrets, consommation SBOM, réponse CVE. L'audit a passé avec zéro constat sur le composant OculiX. Le rapport a été attaché comme preuve.
+  </Card>
+
+  <Card title="Industriel défense — migration air-gap" icon="approve-check">
+    Un industriel défense passant d'un environnement connecté à un environnement air-gap. La revue couvrait le build-from-source en air-gap, le mirroring de dépendances, la vérification des releases signées, la conformité d'audit trail. Migration réussie en 6 semaines avec zéro fuite air-gap. Le rapport est devenu le runbook interne de l'équipe.
+  </Card>
+
+  <Card title="Industrie — scaling de 10 à 200 scripts" icon="puzzle">
+    Une équipe d'engineering d'usine a fait croître son usage d'OculiX de 10 scripts à 200 sur un an et heurtait des murs de maintenance. La revue a identifié : prolifération de helpers, chaos de naming d'ancres images, pas de bibliothèque partagée entre équipes. Recommandations : consolider les helpers dans un module Java partagé, convention de naming, bibliothèque d'images centrale avec versioning. Réorg complétée en un trimestre, charge de maintenance tombée de 60 %.
+  </Card>
+</CardGrid>
+
+## Questions fréquentes
+
+### Combien de temps dure l'appel de cadrage ?
+
+30 minutes par défaut, parfois 45. On ne le facture pas, et on ne pousse pas à le convertir en engagement — environ 30 % des appels de cadrage concluent « votre situation va en fait bien, pas besoin de revue » ou « une formation aiderait plus ».
+
+### Jusqu'où le rapport va-t-il en profondeur ?
+
+C'est une **revue d'architecture**, pas un audit de code. On ne lit pas chaque ligne de chaque script. On lit assez pour identifier les patterns structurels, puis on les décrit au bon niveau pour un décideur technique. **Longueur typique du rapport : 15-30 pages de contenu substantiel** (pas de remplissage).
+
+### Implémentez-vous les recommandations ?
+
+Pas dans cet engagement. La revue est **strictement l'assessment + le rapport + l'appel de suivi**. Si vous voulez de l'implémentation, on le cadrera comme un engagement séparé ([Développement sur mesure](/fr/support/custom-development/), [Support production](/fr/support/production-support/), ou un projet d'implémentation structuré). La revue est **autonome** par design — vous pouvez prendre le rapport et implémenter en interne, ou avec un autre partenaire, ou pas du tout.
+
+### Les constats sont-ils confidentiels ?
+
+Oui. On signe un NDA avant l'accès si vous l'exigez (template NDA standard fourni, ajustable mutuellement). Le rapport est **livré seulement à vous**. On ne publie pas d'études de cas anonymisées sans votre accord écrit.
+
+### Et si la revue trouve qu'OculiX n'est pas le bon outil pour votre cas ?
+
+On le dira dans le rapport. **On a déconseillé l'adoption d'OculiX deux fois** dans des revues passées où le cas d'usage était mieux servi par une autre approche (l'un était une app web DOM-lourde où Playwright collait mieux ; l'autre était un cas d'automation mainframe où les drivers green-screen étaient plus appropriés). L'assessment honnête est la valeur, pas le « toujours dire oui à OculiX ».
+
+### Couvrez-vous des outils non-OculiX dans la revue ?
+
+La revue est **centrée OculiX**. On compare OculiX aux alternatives factuellement quand c'est pertinent (p. ex. « pour ce cas, OculiX + Selenium combinés iraient mieux qu'OculiX seul »). On ne fait pas de conseil stratégie RPA générique — il y a des cabinets qui se spécialisent là-dedans.
+
+### Combien ça coûte ?
+
+Prix fixe par engagement, cadré pendant l'appel. Les frais corrèlent grossièrement avec la profondeur et l'étendue de l'analyse. **La plupart des revues atterrissent dans une fourchette comparable** — prévisible pour le budget.
+
+### Peut-on avoir plusieurs reviewers de votre côté ?
+
+Par défaut, le mainteneur (Julien Mer) mène la revue. Pour des sujets très spécifiques (p. ex. architecture sécurité pour un audit défense), on peut amener un spécialiste de domaine en co-reviewer. Discuté pendant le cadrage.
+
+### Comparé à embaucher un cabinet de conseil générique ?
+
+Un cabinet générique vous donnera du conseil stratégie RPA large. **Nous vous donnons du conseil architectural OculiX-spécifique de la part des gens qui maintiennent le code source.** Portée différente, profondeur différente, fit différent. Certaines équipes embauchent les deux pour des perspectives complémentaires.
+
+## Nous contacter
+
+<CardGrid>
+  <LinkCard
+    title="Demander un appel de cadrage gratuit"
+    description="Dites-nous en quelques lignes ce que vous voudriez voir revu. On met en place un appel de 30 min sous 48 h et on propose un engagement ou un autre chemin si ça colle mieux."
+    href="mailto:contact@oculix.org?subject=Appel%20de%20cadrage%20revue%20d%27architecture"
+  />
+  <LinkCard
+    title="Lire d'abord l'architecture sécurité"
+    description="Si votre intérêt de revue est piloté par la sécurité, la page Sécurité publique couvre la plupart des préoccupations standards."
+    href="/fr/support/security/"
+  />
+</CardGrid>
+
+🦎

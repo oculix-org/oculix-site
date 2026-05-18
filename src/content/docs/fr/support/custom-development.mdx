@@ -1,0 +1,182 @@
+---
+title: Développement de fonctionnalité sur mesure
+description: Sponsorisez le développement focalisé d'une capacité OculiX dont vous avez besoin. La fonctionnalité reste MIT et profite à tout le monde — votre sponsoring lui fait simplement gagner du temps dans la file de priorité.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![MIT pour toujours](https://img.shields.io/badge/Licence-MIT%20pour%20toujours-green?style=flat-square)
+![Design ouvert](https://img.shields.io/badge/Design-En%20ouvert-blue?style=flat-square)
+![Roadmap publique](https://img.shields.io/badge/Roadmap-Publique-success?style=flat-square)
+![Priorité](https://img.shields.io/badge/Sponsor-File%20prioritaire-blueviolet?style=flat-square)
+
+</div>
+
+OculiX a une roadmap publique. Certaines équipes ont besoin qu'une capacité précise soit **amenée plus tôt dans le temps** — un nouveau mot-clé, un nouveau runner, un nouveau connecteur, une amélioration de performance, un portage de plateforme. Le développement sur mesure est l'engagement où vous sponsorisez le temps du mainteneur pour qu'il se concentre sur un livrable défini.
+
+<Aside type="tip" title="Le modèle en une ligne">
+  Vous n'achetez pas une fonctionnalité privée. Vous achetez de la **priorité dans la roadmap ouverte**. Le code part en MIT, dans le repo public, disponible pour tous — y compris vos concurrents. Ce que vous obtenez, c'est du **temps, de l'attention, et la fonctionnalité dans vos mains plus vite que la roadmap naturelle ne la livrerait**.
+</Aside>
+
+## Ce que nous ne faisons pas
+
+Cette page existe en partie pour être clair sur ce que cet engagement **n'est pas**, parce que le modèle surprend les gens qui viennent des éditeurs commerciaux.
+
+<Aside type="caution" title="Ce qu'on ne fait pas, et pourquoi">
+
+- ❌ **Fonctionnalités privées** non expédiées dans le repo public. OculiX est MIT, le code source est un repo unique, il n'y a pas d'« Enterprise Edition » avec des modules en plus.
+- ❌ **Modules closed-source** pour un seul client. Même raison.
+- ❌ **Dépréciation sponsorisée** (retirer des fonctionnalités qui vous gênent mais qui aident d'autres). La roadmap reste guidée par le jugement communauté + mainteneur, pas par du retrait payant.
+- ❌ **Branding vendeur** (« OculiX Pro, powered by AcmeCorp »). Un nom, un projet, une communauté.
+
+Ces contraintes sont intentionnelles. Elles rendent le projet digne de confiance pour les **90 autres organisations** qui l'utilisent sans payer, et c'est précisément ce qui rend le projet pertinent pour **vous aussi**.
+
+</Aside>
+
+## Ce que nous faisons
+
+<CardGrid>
+  <Card title="Nouveau mot-clé ou API" icon="puzzle">
+    Une capacité manquante dans la surface d'OculiX : une nouvelle méthode `Region`, un nouveau matcher, un nouveau geste, un nouveau hook accessibilité. Designé en ouvert, atterrit dans l'API publique.
+  </Card>
+
+  <Card title="Nouveau runner" icon="seti:python">
+    Support d'un langage de scripting pas encore couvert (TypeScript via Operix bridge, Kotlin, Groovy en first-class, etc.) ou d'un nouveau mode d'exécution (conteneurisé, serverless, distribué).
+  </Card>
+
+  <Card title="Nouveau connecteur" icon="random">
+    Intégration avec un système nécessitant de la glu Java (un orchestrateur RPA spécifique, un moteur de workflow, un backend OCR particulier, une API cloud de partage d'écran particulière). Atterrit comme module contribué dans le repo OculiX approprié.
+  </Card>
+
+  <Card title="Amélioration de performance" icon="rocket">
+    Un speedup mesurable sur un goulot précis (matching d'images sur setup multi-moniteurs, warmup JVM, throughput OCR, temps de démarrage en mode headless). Benchmark avant-après ; le benchmark lui-même atterrit public.
+  </Card>
+
+  <Card title="Portage de plateforme" icon="laptop">
+    Combinaisons OS/arch pas encore couvertes (Linux ARM, variantes BSD, environnements Windows restreints). Inclut la mise en place d'une couverture matrice CI pour que la plateforme soit supportée durablement, pas juste expédiée une fois.
+  </Card>
+
+  <Card title="Backport / stabilisation" icon="approve-check">
+    Une fonctionnalité sur `master` que vous avez besoin de backporter sur une branche stable, avec une couverture de tests propre pour que le backport ne régresse pas.
+  </Card>
+</CardGrid>
+
+## Comment ça marche — design ouvert en 5 étapes
+
+### 1. Conversation (gratuite)
+
+Vous décrivez la capacité dont vous avez besoin, le cas d'usage qui la motive, le calendrier qui aurait du sens pour vous. On discute faisabilité, portée, alternatives et interaction avec l'architecture OculiX existante.
+
+Si la fonctionnalité est déjà sur la roadmap et atterrira naturellement dans la prochaine release, on vous le dit — pas d'engagement nécessaire.
+
+### 2. Issue publique avec proposition de design
+
+On ouvre une **issue GitHub** dans le repo OculiX décrivant la fonctionnalité proposée, l'approche de design et le raisonnement. **Votre nom (ou votre organisation, si vous voulez du crédit public) est rattaché comme sponsor.** Un sponsoring anonyme est aussi possible si vous préférez.
+
+C'est la partie « en ouvert » : la communauté voit ce qui arrive, peut commenter, peut soulever des préoccupations. Parfois un contributeur propose une approche plus simple à laquelle on n'avait pas pensé. Ça rend la fonctionnalité meilleure.
+
+### 3. Implémentation sur une branche feature
+
+On construit la fonctionnalité sur une branche du repo public. Vous voyez les commits atterrir en temps réel. Si vous voulez, votre équipe peut reviewer les PRs au fil de l'eau (on utilise des draft PRs pour la visibilité pendant le développement).
+
+### 4. Validation dans votre environnement
+
+Vous testez la fonctionnalité dans votre environnement contre votre cas d'usage réel. Si elle ne se comporte pas comme attendu, on itère. Les critères d'acceptation sont définis en amont dans l'issue, donc « done » est un état documenté, pas un jugement subjectif.
+
+### 5. Merge sur master, livraison en release
+
+Une fois validée, la fonctionnalité atterrit sur `master`. Elle part dans la prochaine release OculiX (ou plus tôt comme jar hot-fix, voir [Support production](/fr/support/production-support/)). Votre organisation obtient :
+
+- **Crédit dans les release notes**
+- **Co-Authored-By sur le merge commit** (si vous avez des contributeurs qui ont participé)
+- **Mention publique** sur la [page Adoption](/fr/showcase/) (avec votre accord)
+
+## Modèle de tarification
+
+Le développement sur mesure est tarifé par **blocs de temps focalisés** :
+
+- **Discovery + design** — forfait pour les livrables Phase 1 + Phase 2 (issue de design publique + critères d'acceptation). Typiquement 1-2 semaines.
+- **Build + ship** — forfait ou taux horaire selon la prévisibilité de la portée. Discuté en toute transparence dans la lettre d'engagement.
+
+On ne vend pas des « heures » de mainteneur de façon abstraite. On vend **une fonctionnalité avec un état de « done » défini**, avec des jalons liés à cet état.
+
+## Exemples (anonymisés)
+
+<CardGrid>
+  <Card title="Une organisation healthcare a sponsorisé l'intégration PaddleOCR" icon="seti:image">
+    Un provider healthcare avait besoin d'OCR précis sur des documents en langues asiatiques. Tesseract ne suffisait pas. Ils ont sponsorisé l'**intégration du serveur HTTP PaddleOCR** comme backend opt-in. Expédié comme repo compagnon `paddleocr-server` plus un toggle de configuration OculiX. Maintenant disponible pour tous.
+  </Card>
+
+  <Card title="Une banque a sponsorisé le support async des devices ADB" icon="seti:db">
+    Une banque faisant tourner des tests UI mobile à l'échelle avait besoin d'opérations ADB asynchrones pour paralléliser sa suite. Ils ont sponsorisé l'**API async ADBDevice**. Expédié dans OculiX 3.0.2 comme `ADBDevice.swipeAsync()` et compagnie. Leur suite est passée de 90 minutes à 18.
+  </Card>
+
+  <Card title="Une agence gouvernementale a sponsorisé le journal d'audit MCP" icon="document">
+    Une agence gouvernementale exigeait un logging tamper-evident de chaque action automatisée. Ils ont sponsorisé le **module serveur MCP avec journal d'audit JSONL signé Ed25519 et chaîné SHA-256**. Expédié comme module séparé. Maintenant utilisé par plusieurs adopteurs en secteur régulé.
+  </Card>
+
+  <Card title="Un industriel a sponsorisé le matching multi-moniteurs" icon="laptop">
+    Une chaîne de production avec des stations opérateur 6 moniteurs avait besoin d'un pattern matching fiable sur tout le bureau virtuel. Ils ont sponsorisé la **réécriture de la normalisation des coordonnées multi-moniteurs**. Expédié dans OculiX 3.0.0 comme `Screen.all()` retournant une région de recherche unifiée.
+  </Card>
+</CardGrid>
+
+## Questions fréquentes
+
+### Peut-on avoir une fonctionnalité privée ?
+
+Non. Chaque fonctionnalité expédiée par OculiX est MIT, publique, disponible pour tous. Si vous avez besoin d'une capacité privée qui ne peut vraiment pas être publique (parce qu'elle embarque de l'IP propriétaire), c'est en dehors de ce que couvrent les engagements OculiX — il vous faudrait maintenir un fork vous-même.
+
+### Pourquoi ce modèle ?
+
+Parce que la valeur d'OculiX, c'est **la confiance que rien n'est caché**. Si on expédiait des fonctionnalités privées pour des clients payants, la version publique deviendrait une variante « lite », ce qui est l'inverse de la philosophie MIT-OSS. La garantie « la version gratuite est la même version » est ce qui fait que 91+ organisations adoptent OculiX.
+
+### Et si on ne veut pas que notre nom soit public ?
+
+Le sponsoring peut être **anonyme**. L'issue de design référencera « sponsorisé par un utilisateur OculiX » sans vous nommer. Le Co-Authored-By du merge commit peut être omis. La mention sur la page Adoption est opt-in.
+
+### Quelle garantie qu'on a que la fonctionnalité sera mergée ?
+
+Les critères d'acceptation sont définis en amont dans l'issue publique. Tant que la fonctionnalité atteint ces critères, elle merge. **Le risque de « non mergée » est atténué par la Phase 1** — on ne prend pas l'engagement s'il y a une raison architecturale qui empêche la fonctionnalité d'atterrir proprement. La pré-discussion est précisément ce qui attrape ça.
+
+### Et la propriété intellectuelle ?
+
+La fonctionnalité est MIT. **Votre sponsoring ne vous donne pas la propriété de l'IP** — vous ne pouvez pas la revendre comme du code propriétaire. Vous POUVEZ référencer votre sponsoring publiquement (releases, marketing, conférences). La plupart des sponsors trouvent l'échange équitable.
+
+### Et si la communauté pousse sur le design ?
+
+On écoute. L'étape « design ouvert » est précisément là pour faire émerger les objections tôt. Si la communauté propose une meilleure approche, on l'adopte (avec votre avis). S'ils s'opposent à l'existence même de la fonctionnalité, on a une conversation honnête sur la suite. Jusqu'à présent, **aucun engagement n'a été bloqué par un pushback communautaire** — mais l'option existe.
+
+### Combien de temps tourne un engagement typique ?
+
+Discovery + design : 1-2 semaines.
+Build + ship : typiquement 2-8 semaines selon la complexité.
+Total : 3-10 semaines pour la plupart des fonctionnalités.
+
+Un petit mot-clé : 3-4 semaines total. Un nouveau runner ou un gros travail de perf : 8-10 semaines. Refonte architecturale : au cas par cas.
+
+### Plusieurs organisations peuvent-elles co-sponsoriser ?
+
+Oui, et on l'encourage pour les fonctionnalités plus grosses. Plusieurs sponsors partagent le coût, tous obtiennent le crédit, la fonctionnalité atterrit toujours MIT en une fois. On coordonne le recueil des besoins entre sponsors via l'issue de design.
+
+### Prenez-vous des engagements pour des fonctionnalités que vous auriez construites de toute façon ?
+
+D'habitude non — ce serait sponsoriser quelque chose qui arrive déjà. Mais si votre calendrier est significativement plus serré que le nôtre et qu'il vous faut l'avoir plus tôt, **l'engagement c'est le décalage temporel, pas la fonctionnalité elle-même**. On est transparent là-dessus côté tarif.
+
+## Nous contacter
+
+<CardGrid>
+  <LinkCard
+    title="Décrivez la fonctionnalité dont vous avez besoin"
+    description="Quelques lignes sur la capacité que vous voulez, le cas d'usage qui la motive et un calendrier approximatif. On revient avec un avis de faisabilité sous 48 h."
+    href="mailto:contact@oculix.org?subject=Demande%20d%C3%A9veloppement%20sur%20mesure"
+  />
+  <LinkCard
+    title="Parcourez la roadmap publique d'abord"
+    description="Votre fonctionnalité arrive peut-être déjà. Regardez les issues publiques avec le label 'roadmap'."
+    href="https://github.com/oculix-org/Oculix/labels/roadmap"
+  />
+</CardGrid>
+
+🦎

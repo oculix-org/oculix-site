@@ -1,0 +1,195 @@
+---
+title: Architecture review
+description: A second pair of expert eyes on your visual automation strategy. One call to scope, written report inside two weeks, follow-up call for questions.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![Format](https://img.shields.io/badge/Format-Call%20%2B%20Report%20%2B%20Follow--up-blue?style=flat-square)
+![Timeline](https://img.shields.io/badge/Timeline-2%20weeks-success?style=flat-square)
+![Deliverable](https://img.shields.io/badge/Deliverable-Written%20PDF%20report-orange?style=flat-square)
+![Confidentiality](https://img.shields.io/badge/Confidentiality-NDA%20available-blueviolet?style=flat-square)
+
+</div>
+
+Before committing significant budget to OculiX — or when an existing setup feels brittle and you want to know why — a structured **architecture review** gives you a second pair of expert eyes on your visual automation strategy. The output is a **written report**, not slides, and is **yours to keep** regardless of what you decide next.
+
+<Aside type="tip" title="In one line">
+  One scoping call (free), one analysis cycle (2 weeks), one written report (PDF, structured, prioritized), one follow-up call (45 min). Decide what to do next with real information instead of hopes.
+</Aside>
+
+## Who it's for
+
+<CardGrid>
+  <Card title="Teams about to commit budget" icon="approve-check">
+    You're evaluating OculiX (or comparing it to alternatives) for a meaningful deployment. Before signing off on the architecture, you want an independent technical opinion.
+  </Card>
+
+  <Card title="Teams with brittle existing setups" icon="warning">
+    Your OculiX (or other RPA) deployment works most of the time, but breaks often enough to be a nuisance. You suspect there's a structural reason but you're inside the problem and can't see clearly.
+  </Card>
+
+  <Card title="Teams considering migration" icon="random">
+    You're on UiPath / Automation Anywhere / Blue Prism / TagUI and weighing whether OculiX is the right destination. You want to understand the structural implications before committing to the [Migration engagement](/support/migration-from-rpa/).
+  </Card>
+
+  <Card title="Teams pushing scale boundaries" icon="rocket">
+    You've made OculiX work for one team, now multiple teams want in. Scaling from 10 scripts to 1,000 surfaces architectural questions that didn't exist before.
+  </Card>
+
+  <Card title="Teams in regulated sectors" icon="seti:lock">
+    Banking, defense, healthcare, government. Your CISO / risk team asks pointed questions about OculiX and you need a credible answer beyond "the docs say it's secure".
+  </Card>
+
+  <Card title="Teams hitting performance walls" icon="seti:plan">
+    Tests that ran in 30 min now take 4 hours. Memory grows unbounded. CI queues back up. You suspect tuning, you suspect architecture, you want to know which.
+  </Card>
+</CardGrid>
+
+## What's covered
+
+<CardGrid>
+  <Card title="Stack assessment" icon="seti:plan">
+    Inventory of your OculiX deployment: versions, modules in use, scripts catalog, integration points, scheduling infrastructure, monitoring setup. Catalog with severity labels for known issues.
+  </Card>
+
+  <Card title="Pattern review" icon="seti:python">
+    Review of representative scripts and helpers for patterns that scale vs patterns that don't. Common anti-patterns flagged with recommended refactor priority.
+  </Card>
+
+  <Card title="Scaling analysis" icon="rocket">
+    Your current load, projected growth, bottlenecks in the path. Where parallel execution helps and where it breaks. JVM tuning, process isolation, CI orchestration.
+  </Card>
+
+  <Card title="Security posture" icon="seti:lock">
+    Application of [OculiX security architecture](/support/security/) to your specific deployment. Air-gap considerations, secrets management, audit trail (MCP module), supply chain (SBOM consumption).
+  </Card>
+
+  <Card title="CI/CD integration" icon="random">
+    How OculiX fits in your pipeline today. Where it adds friction, where it should integrate more deeply. Tradeoffs of running scripts in CI vs scheduled jobs.
+  </Card>
+
+  <Card title="Monitoring & observability" icon="approve-check">
+    What you observe today, what you should observe, what tooling fits. Failure mode visibility, alerting, audit retention, post-mortem readiness.
+  </Card>
+</CardGrid>
+
+## How it works
+
+### 1. Scoping call (free, 30 min)
+
+We understand your context, the questions you want answered, and the depth that fits your situation. Most reviews fall into one of the 6 buckets above, but the actual focus is shaped by what matters most to you. If a particular concern dominates (e.g., "we're stuck on a 90-min CI suite, can we get to 30?"), the review focuses there.
+
+No commitment from this call — we'll either propose to proceed, suggest a different engagement (e.g., training instead), or decline if architecture review isn't the right fit.
+
+### 2. Information gathering (3-5 days)
+
+You provide, under NDA if needed:
+
+- Read access to your OculiX scripts repo (or a representative sample)
+- Your CI configuration files
+- A walkthrough call (60-90 min) with the team that operates OculiX day-to-day
+- Any relevant ops docs, runbooks, post-mortems, monitoring screenshots
+- The questions you want answered, ranked by priority
+
+We don't need access to production systems — just enough material to understand the architecture in depth.
+
+### 3. Analysis (5-8 days)
+
+We work through the material, reproduce relevant patterns in a sandbox where possible, benchmark where bottlenecks are suspected, draft the report. We may ask 1-2 short clarification questions during this phase but mostly work independently.
+
+### 4. Written report (delivered end of Week 2)
+
+A structured PDF document, typically 15-30 pages, covering:
+
+- **Executive summary** (1 page) — top 5 findings, top 5 recommendations, in plain language for non-engineers
+- **Current state** — your deployment described in our words, so you know we understood correctly
+- **Gaps & risks** — what's structurally fragile, what's likely to fail under specific scenarios
+- **Recommendations** — prioritized by ROI (impact / effort), with concrete next steps
+- **Implementation roadmap** — what to tackle first, second, third, and how long each is likely to take
+- **Open questions** — things we couldn't determine from the material that need a decision on your side
+
+The report is **yours**. You can share it internally, use it in budget conversations, use it as a baseline for a vendor selection process. We don't retain rights over it beyond reference for our records.
+
+### 5. Follow-up call (45 min, included)
+
+A live walkthrough of the report with the people on your side who'll act on it. Q&A, clarifications, prioritization adjustments based on internal constraints we didn't know about. **No surprise findings revealed in the call** — everything substantive is already in the report.
+
+After this call, the engagement is complete. If you want us to implement the recommendations, that's a separate engagement ([Custom development](/support/custom-development/) or [Production support](/support/production-support/) depending on scope).
+
+## Examples (anonymized)
+
+<CardGrid>
+  <Card title="Bank — 40% CI suite speedup" icon="rocket">
+    A bank running 50,000 OculiX executions per day across 12 CI workers asked: "why is our suite 90 minutes?". The review identified: JVM cold-start dominating, no OpenCV pre-load, suboptimal parallelism on the workers. After they implemented the 3 recommendations: 54 minutes. The review fee paid back in CI minutes saved within 6 weeks.
+  </Card>
+
+  <Card title="Insurance — security pre-audit" icon="seti:lock">
+    A French insurance group preparing for an internal security audit got a review of their OculiX deployment for the audit committee. Report covered air-gap readiness, audit journal usage, secrets handling, SBOM consumption, CVE response. Audit passed with zero findings on the OculiX component. The report was attached as evidence.
+  </Card>
+
+  <Card title="Defense contractor — air-gap migration" icon="approve-check">
+    A defense contractor moving from a connected environment to an air-gapped one. Review covered build-from-source on air-gap, dependency mirroring, signed-release verification, audit trail compliance. Migration succeeded in 6 weeks with zero air-gap leaks. The report became the team's internal runbook.
+  </Card>
+
+  <Card title="Manufacturing — scaling from 10 to 200 scripts" icon="puzzle">
+    A factory engineering team grew their OculiX usage from 10 scripts to 200 over a year and was hitting maintenance walls. Review identified: helper sprawl, image-anchor naming chaos, no shared library across teams. Recommendations: consolidate helpers into a shared Java module, naming convention, central image library with versioning. Reorg completed in a quarter, maintenance burden dropped 60%.
+  </Card>
+</CardGrid>
+
+## Frequently asked questions
+
+### How long is the scoping call?
+
+30 minutes by default, sometimes 45. We don't bill for it, and we don't push to convert it into an engagement — about 30% of scoping calls conclude "your situation is actually fine, no review needed" or "training would help more".
+
+### How deep does the report go?
+
+It's an **architecture review**, not a code audit. We won't read every line of every script. We read enough to identify structural patterns, then describe them at the right level for a technical decision-maker. **Typical report length: 15-30 pages of substantive content** (not padding).
+
+### Will you implement the recommendations?
+
+Not in this engagement. The review is **strictly the assessment + report + follow-up call**. If you want implementation, we'll scope it as a separate engagement ([Custom development](/support/custom-development/), [Production support](/support/production-support/), or a structured implementation project). The review is **standalone** by design — you can take the report and implement internally, or with another partner, or not at all.
+
+### Are findings confidential?
+
+Yes. We sign an NDA before access if you require one (standard NDA template provided, mutually adjustable). The report is **delivered only to you**. We don't publish anonymized case studies without your written approval.
+
+### What if the review finds OculiX isn't the right tool for our case?
+
+We'll say so in the report. **We've recommended against OculiX adoption twice** in past reviews where the use case was better served by another approach (one was a web-only DOM-heavy app where Playwright fit better; one was a mainframe automation case where green-screen drivers were more appropriate). Honest assessment is the value, not "always say yes to OculiX".
+
+### Do you cover non-OculiX tools in the review?
+
+The review is **OculiX-centered**. We compare OculiX to alternatives factually when relevant (e.g., "for this case, OculiX + Selenium combined would fit better than OculiX alone"). We don't do generic RPA strategy consulting — there are firms that specialize in that.
+
+### How much does it cost?
+
+Fixed price per engagement, scoped on the call. The fee correlates roughly with the depth and breadth of the analysis. **Most reviews land in a comparable range** — predictable for budget purposes.
+
+### Can we have multiple reviewers from your side?
+
+By default, the maintainer (Julien Mer) leads the review. For very specific topics (e.g., security architecture for a defense audit), we can bring in a domain specialist as co-reviewer. Discussed during scoping.
+
+### How does this compare to hiring a generic consultancy?
+
+A generic consultancy will give you broad RPA-strategy advice. **We give you OculiX-specific architectural advice from the people who maintain the codebase.** Different scope, different depth, different fit. Some teams hire both for complementary perspectives.
+
+## Get in touch
+
+<CardGrid>
+  <LinkCard
+    title="Request a free scoping call"
+    description="Tell us in a few lines what you'd like reviewed. We'll set up a 30-min call within 48h and propose an engagement or a different path if it fits better."
+    href="mailto:contact@oculix.org?subject=Architecture%20review%20scoping%20call"
+  />
+  <LinkCard
+    title="Read the security architecture first"
+    description="If your review interest is security-driven, the public Security page covers most of the standard concerns."
+    href="/support/security/"
+  />
+</CardGrid>
+
+🦎

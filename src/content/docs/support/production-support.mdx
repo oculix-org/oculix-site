@@ -1,0 +1,168 @@
+---
+title: Production support
+description: A direct line to the OculiX maintainer with a guaranteed response time, for teams running OculiX on business-critical paths.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![Response SLA](https://img.shields.io/badge/SLA-Same%20day%20ack-success?style=flat-square)
+![Private channel](https://img.shields.io/badge/Channel-Private%20Slack%20or%20email-blue?style=flat-square)
+![Coverage](https://img.shields.io/badge/Coverage-Business%20hours%20CET-orange?style=flat-square)
+![Scope](https://img.shields.io/badge/Scope-Per--organization-blueviolet?style=flat-square)
+
+</div>
+
+When an OculiX-driven pipeline sits on a business-critical path — a nightly batch you can't afford to miss, a CI suite blocking releases, an RPA workflow your operations depends on — community-best-effort support isn't always enough.
+
+A **production support agreement** gives your team a direct line to the maintainer, with written commitments on response time and triage priority.
+
+<Aside type="tip" title="In one line">
+  You get a name, a phone, an email, and a written promise of how fast we acknowledge and triage. No ticket system, no tier-1 deflection, no scripts.
+</Aside>
+
+## What you get
+
+<CardGrid>
+  <Card title="Private communication channel" icon="comment-alt">
+    A dedicated **Slack channel** (your workspace or ours), a **private email alias**, or a **scheduled weekly sync** — whichever fits your team's workflow. No public issue tracker for sensitive discussions.
+  </Card>
+
+  <Card title="Written response SLA" icon="rocket">
+    A specific commitment in a signed agreement: critical incidents acknowledged **within hours**, triage commit **within 48h**, fix timeline communicated transparently. We don't promise what we can't deliver.
+  </Card>
+
+  <Card title="Priority bug triage" icon="warning">
+    Bugs you report go to the **top of the maintainer's queue**, even ahead of community issues. When a regression hits your team, we drop other work to investigate.
+  </Card>
+
+  <Card title="Direct access to the maintainer" icon="approve-check">
+    No tier-1 / tier-2 / tier-3 ladder. You email, you get the person who wrote the code. The handoff problem doesn't exist when there's nothing to hand off to.
+  </Card>
+
+  <Card title="Roadmap visibility and influence" icon="seti:plan">
+    Quarterly call to share what's coming next in OculiX, what your team's pain points are, and how the two intersect. You don't dictate the roadmap, but your real production constraints shape it.
+  </Card>
+
+  <Card title="Hot-fix builds on demand" icon="random">
+    If a critical bug is fixed on `master` but not yet in a release, we cut a **dedicated hot-fix jar** signed and delivered to you, so you can patch production without waiting for the next RC cycle.
+  </Card>
+</CardGrid>
+
+## What it does not include
+
+<Aside type="caution">
+Production support is for **operational stability**, not for new development. The boundary is intentional:
+
+- ❌ **Custom feature development** — that's the [Custom development](/support/custom-development/) engagement
+- ❌ **Migration from another RPA tool** — that's the [Migration from commercial RPA](/support/migration-from-rpa/) engagement
+- ❌ **Team training on OculiX** — that's the [Training](/support/training/) engagement
+- ❌ **Architecture audit of your stack** — that's the [Architecture review](/support/architecture-review/) engagement
+
+A single team often combines two or three of these as needed. They can run in parallel.
+</Aside>
+
+## How it works
+
+### 1. Initial scoping call (free)
+
+A 30-minute call to understand:
+- How your team uses OculiX in production today
+- What's at stake if it breaks (revenue impact, regulatory impact, customer impact)
+- What response time you actually need (some teams need 24/7 critical lines, most are fine with business-hours CET)
+- What channel works best for your operations team
+
+No commitment from this call — it's a fit-check on both sides.
+
+### 2. Written agreement
+
+A short, signed document covering:
+- Scope of support (what counts as a covered issue)
+- Response time commitments (acknowledgement, triage, fix)
+- Channels and contact persons on both sides
+- Term (typically 12 months, renewable)
+- Quarterly review cadence
+- Termination clause (either side, 30 days notice)
+
+No legalese surplus. We've kept the standard agreement under 4 pages.
+
+### 3. Ongoing relationship
+
+- A live channel (Slack invite, email alias, your preference)
+- Tracked metrics: time-to-acknowledge, time-to-triage, time-to-fix per ticket
+- Quarterly business review (45 min, optional but recommended)
+- Annual renewal conversation around real usage and evolution
+
+## When it has been useful
+
+Examples drawn from actual past engagements (anonymized):
+
+<CardGrid>
+  <Card title="The Friday-evening regression" icon="error">
+    A bank's nightly RPA batch started failing at 5pm Friday. Their team reached out at 5:15pm. We acknowledged at 5:18pm, identified a regression in a recent `master` jar they had pulled too early, delivered a rebuilt jar from the prior known-good commit by 6:30pm. Monday morning batch ran clean.
+  </Card>
+
+  <Card title="The quarterly tuning review" icon="approve-check">
+    A retail group running 50,000 OculiX executions per day per region got a quarterly review of their JVM tuning and CI scheduling. We identified a 40% wall-clock speedup by adjusting parallelism settings and pre-warming the OpenCV JNI load. Cumulative savings: hundreds of hours per quarter.
+  </Card>
+
+  <Card title="The compliance audit support" icon="document">
+    A healthcare organization needed to answer their auditor's questions about OculiX's telemetry, supply chain, and CVE response. We provided a written security architecture statement and a walkthrough of the codebase paths the auditor asked about. The audit closed with no findings related to OculiX.
+  </Card>
+
+  <Card title="The hot-fix turnaround" icon="rocket">
+    A defense contractor hit a bug on Linux glibc 2.39 (recent Ubuntu) on a Friday morning. We acknowledged within 90 minutes, reproduced it in our test container by lunch, shipped a fix in a private branch by end of day, merged to `master` Saturday morning. Their team patched Monday.
+  </Card>
+</CardGrid>
+
+## Frequently asked questions
+
+### How is this different from community GitHub issues?
+
+Community issues are answered on a **best-effort basis** by the maintainer and the community. Most are answered, but there's no guarantee of timeline. **Production support converts that into a written SLA with priority queue.** Same maintainer, different commitment.
+
+### Do you offer 24/7 coverage?
+
+By default, **business hours CET** (Monday-Friday, 09:00-19:00 Paris time). Some teams have negotiated extended coverage (weekends, holidays) for an adjusted scope. We don't promise 24/7 on a one-maintainer project — we'd rather promise less and deliver more.
+
+### What's the response time if we go through community channels instead?
+
+Reproducible bugs: a few days. Feature requests: triage within a week, implementation timeline varies wildly. Security advisories: 48h ack regardless. **With production support, the bug-acknowledgement clock is hours, not days.**
+
+### Can we get a custom SLA?
+
+Yes. The default agreement is the starting template — we adjust scope, response time, coverage window, channels, and review cadence to your operational reality. A 30-min call is enough to scope.
+
+### What happens if you (the maintainer) are unavailable?
+
+The agreement names a backup contact (typically @adriancostin6, [trusted contributor track](/community/contributing/)) for continuity during vacations, illness, etc. For longer absences, we proactively notify and adjust expectations.
+
+### How does this interact with the open-source license?
+
+OculiX remains MIT. **No code is private.** Everything we fix for you lands in the public `master` branch, available to everyone. You're paying for **priority**, **direct access**, and **written commitments** — not for proprietary features.
+
+### Is there indemnification?
+
+Yes, in the standard agreement. The maintainer's liability is capped at the annual support fee, with the usual exclusions (gross negligence excepted). Your procurement can request the terms before signature.
+
+### How do we know it's worth it?
+
+Most teams quantify this in two ways: (1) the cost of a production incident vs the cost of support; (2) the time their internal team spends triaging OculiX issues vs the time saved by direct maintainer access. We can help you frame the ROI conversation if useful, but most decisions are made on the first metric alone.
+
+## Get in touch
+
+<CardGrid>
+  <LinkCard
+    title="Email us with your context"
+    description="Tell us in a few lines what you'd cover with production support. We'll reply within 48h with a proposed scope and a free 30-min call."
+    href="mailto:contact@oculix.org?subject=Production%20support%20inquiry"
+  />
+  <LinkCard
+    title="Other engagements"
+    description="Browse the full list of services if production support isn't quite the right fit."
+    href="/support/enterprise/"
+  />
+</CardGrid>
+
+🦎

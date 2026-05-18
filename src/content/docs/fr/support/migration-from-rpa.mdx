@@ -1,0 +1,217 @@
+---
+title: Migration depuis un RPA commercial
+description: Projets de migration cadrés, à prix fixe, depuis UiPath, Automation Anywhere, Blue Prism ou TagUI vers OculiX — menés par les gens qui maintiennent OculiX.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![Depuis UiPath](https://img.shields.io/badge/Depuis-UiPath-FA4616?style=flat-square)
+![Depuis AA](https://img.shields.io/badge/Depuis-Automation%20Anywhere-FF6900?style=flat-square)
+![Depuis Blue Prism](https://img.shields.io/badge/Depuis-Blue%20Prism-005EB8?style=flat-square)
+![Depuis TagUI](https://img.shields.io/badge/Depuis-TagUI-success?style=flat-square)
+![Portée fixe](https://img.shields.io/badge/Engagement-Port%C3%A9e%20fixe%2C%20livrable%20fixe-blueviolet?style=flat-square)
+
+</div>
+
+Les équipes sous plateforme RPA commerciale (UiPath, Automation Anywhere, Blue Prism) ou OSS à l'arrêt (TagUI, Sakuli) qui veulent migrer vers OculiX n'ont pas à tout réinventer. **Un engagement de migration cadre le projet, fixe un livrable, et l'expédie selon un calendrier écrit.**
+
+<Aside type="tip" title="En une ligne">
+  Vous apportez les scripts. On apporte le runtime, le playbook de migration, le code converti et le handover. Portée fixe, prix fixe, rapport écrit à la fin.
+</Aside>
+
+## Pourquoi les équipes migrent
+
+On ne fait pas de prosélytisme, mais voici ce qu'on entend des équipes qui ont sauté le pas :
+
+<CardGrid>
+  <Card title="Prévisibilité des coûts" icon="approve-check">
+    Les frais par bot et par runtime peuvent grimper à **six ou sept chiffres annuels** au volume entreprise. OculiX a zéro frais de licence pour toujours (MIT). La conversation TCO devient « infra + personnes » au lieu de « infra + personnes + licence ».
+  </Card>
+
+  <Card title="Pas de vendor lock-in" icon="github">
+    Avec un RPA commercial, si votre éditeur monte les prix, retire une fonctionnalité, se fait racheter, ou s'effondre (cf. l'arrêt de TagUI par AI Singapore), vos bots sont coincés. **MIT, source-available, auto-hébergé** veut dire que vous maîtrisez le calendrier de chaque changement.
+  </Card>
+
+  <Card title="Parité multi-plateforme" icon="laptop">
+    OculiX tourne à l'identique sur **Windows, macOS, Linux** depuis un JAR unique par plateforme. UiPath Studio est Windows-only. AA / Blue Prism ont des contraintes similaires. Les équipes à infra mixte arrêtent de maintenir des workflows parallèles.
+  </Card>
+
+  <Card title="Scriptabilité réelle" icon="seti:python">
+    Les scripts OculiX sont du **vrai Python (Jython)** ou du Java. Versionnables dans git, diffables, code-reviewables, testables avec les frameworks standards. L'éditeur de workflow visuel des RPA commerciaux est pratique en faible volume, pénible en gros volume.
+  </Card>
+
+  <Card title="Couche visuelle pure" icon="seti:image">
+    OculiX travaille sur **ce qui est à l'écran**, pas sur les sélecteurs / DOM / hooks d'accessibilité. Les apps qui changent leur structure interne en gardant leur layout visuel ne cassent pas OculiX. Le RPA basé sur les sélecteurs UI casse à chaque release.
+  </Card>
+
+  <Card title="Pas de télémétrie" icon="seti:lock">
+    OculiX ne phone home pas. Rien ne sort de votre réseau. Pour les secteurs régulés (banque, défense, santé, gouvernement), c'est souvent le facteur décisif — même une revue d'architecture du cloud du vendeur n'aide pas, puisqu'il n'y a pas de cloud à revoir.
+  </Card>
+</CardGrid>
+
+## Comment ça marche — les 5 phases
+
+### Phase 1 — Audit (1 à 2 semaines)
+
+On obtient un accès lecture à votre bibliothèque de scripts actuelle. On catalogue :
+
+- Scripts au total, par type (process automation, tests UI, RPA, etc.)
+- Patterns les plus utilisés (sélecteurs, image, OCR, appels API)
+- Intégrations externes (bases de données, APIs, systèmes de fichiers, schedulers)
+- Appels OS natifs (Windows COM, scripting macOS, shell Linux)
+- Infrastructure CI / scheduling existante
+- Workflow de l'équipe ops (qui édite, qui exécute, qui supervise)
+
+Livrable : un **rapport d'audit écrit** avec catégorisation, scoring de complexité par script et proposition de stratégie de migration.
+
+### Phase 2 — Stratégie (1 semaine)
+
+Sur la base de l'audit, on propose :
+
+- Quels scripts migrent **directement** (logique visuelle traduit proprement)
+- Quels scripts nécessitent une **réécriture** (sélecteur-lourds, APIs spécifiques vendeur)
+- Quels scripts devraient être **dépréciés** plutôt que migrés (souvent plus que vous ne le pensez — les stacks RPA accumulent du cruft)
+- Un **batch pilote** pour valider l'approche (typiquement 5-15 scripts représentant les patterns principaux)
+
+C'est vous qui décidez ce qui avance. La stratégie est collaborative.
+
+### Phase 3 — Pilote (1 à 2 semaines)
+
+On migre le batch pilote de bout en bout :
+
+- Convertir les scripts en OculiX
+- Installer OculiX dans votre environnement de test
+- Exécuter les scripts convertis contre vos fixtures de test
+- Comparer la sortie aux exécutions originales du RPA commercial (rapport de delta)
+- Corriger les écarts
+- Documenter les patterns appris
+
+Livrable : **scripts pilote tournant dans votre environnement**, sortie identique à l'original, plus un récap écrit « leçons apprises » qui informe la suite de la migration.
+
+### Phase 4 — Déploiement (2 à 6 semaines selon la taille de la bibliothèque)
+
+On migre les scripts restants par lots, en validant chaque lot avant de continuer. Votre équipe est impliquée pour :
+
+- Valider les scripts convertis contre les critères d'acceptation
+- Faire tourner les scripts convertis en production en parallèle de l'original (shadow mode) sur une durée définie
+- Décider quand basculer chaque lot
+
+Livrable : **bibliothèque complète tournant sur OculiX en production**, plateforme RPA d'origine encore chaude pour rollback.
+
+### Phase 5 — Handover (1 semaine)
+
+On déroule un handover structuré :
+
+- **Session de formation** pour l'équipe ops (exécution, scheduling, debug, monitoring)
+- **Documentation** de l'architecture du nouveau stack, incluant l'intégration CI / scheduling
+- **Runbook** pour les scénarios opérationnels courants (un script échoue, une image doit être re-capturée, un nouveau layout casse un pattern)
+- **Support post-handover sur 30 jours** inclus, pour gérer les inévitables surprises terrain
+
+Livrable : **équipe autonome faisant tourner OculiX en production**, documentation complète, filet de sécurité borné dans le temps.
+
+## Ce qui se traduit bien, ce qui ne se traduit pas
+
+<CardGrid>
+  <Card title="✅ Se traduit bien" icon="approve-check">
+    - Cliquer sur un bouton identifié par apparence (icône, label, couleur)
+    - Saisir du texte dans un champ localisé visuellement
+    - Attendre qu'un écran apparaisse
+    - Capturer et OCR-iser une zone de l'écran
+    - Gestes drag-and-drop UI
+    - Opérations système de fichiers
+    - Exécution de commandes shell
+    - Boucles, conditionnelles, gestion d'erreurs
+  </Card>
+
+  <Card title="⚠️ Nécessite une réécriture" icon="warning">
+    - Sélecteurs basés sur DOM / XPath / hooks accessibilité (pas d'équivalent exact ; on utilise des ancres visuelles)
+    - Connecteurs spécifiques vendeur (Salesforce, SAP) — remplacés par appels API ou workflows visuels
+    - Logique d'éditeur de workflow visuel — aplatie en scripts linéaires
+    - Appels COM natifs (patterns Windows-only) — ré-exprimés en flux visuel quand faisable
+    - Intégration Robot Framework (on a un [chemin natif](https://github.com/MarketSquare/robotframework-SikuliLibrary) mais les tests nécessitent migration)
+  </Card>
+</CardGrid>
+
+## Exemples (anonymisés)
+
+<CardGrid>
+  <Card title="Groupe d'assurance français" icon="rocket">
+    150 scripts RPA sur UiPath, mix d'onboarding client et de traitement documentaire. Migration sur 8 semaines. Résultat : coût de licence passé de 280 k€/an à 0 €, infra grossièrement identique, scripts post-nettoyage tombés à 110 (40 étaient obsolètes et personne ne l'avait remarqué).
+  </Card>
+
+  <Card title="Chaîne retail APAC" icon="random">
+    40 scripts TagUI (après l'arrêt par AI Singapore), besoin d'une alternative maintenue. Migration sur 3 semaines puisque TagUI se traduit proprement en OculiX (modèle visuel similaire). Résultat : mêmes workflows, runtime supporté, pas de licence.
+  </Card>
+
+  <Card title="Provider healthcare US" icon="approve-check">
+    60 scripts Automation Anywhere dans un déploiement Windows-only, voulant s'étendre à un back-office Linux. Migration sur 6 semaines vers OculiX. Résultat : mêmes scripts tournant sur les deux OS, consolidation d'infra, audit trail (module MCP) branché pour les preuves HIPAA.
+  </Card>
+
+  <Card title="Industrie allemande" icon="puzzle">
+    Mix Blue Prism et Selenium custom pour l'automation au sol. Migration sur 5 semaines du sous-ensemble Blue Prism vers OculiX. Selenium conservé pour les flows web spécifiques. Résultat : séparation propre entre automation visuelle (OculiX) et web (Selenium), chaque outil dans son sweet spot.
+  </Card>
+</CardGrid>
+
+## Risques et atténuations
+
+<Aside type="caution" title="Ce qui peut mal tourner, et comment on gère">
+
+- **Sous-estimer la complexité d'un script** → on atténue via l'audit Phase 1 (scoring de complexité par script) et le pilote Phase 3 (validation terrain avant déploiement).
+- **Méconnaissance de l'équipe ops** → la Phase 5 inclut formation structurée et livraison de runbook. Le filet de sécurité 30 jours rattrape les surprises réelles.
+- **Changements visuels dans les apps cibles en cours de migration** → les scripts migrés utilisent le tuning de similarité d'OculiX et l'awareness de résolution ; on teste la robustesse, pas juste le happy-path.
+- **Pieds froids du sponsor en cours de déploiement** → toutes les phases sont cadrées avec des livrables clairs. Vous pouvez mettre en pause ou annuler après n'importe quelle phase ; le travail livré reste à vous.
+
+</Aside>
+
+## Questions fréquentes
+
+### Tous nos scripts marcheront-ils après migration ?
+
+L'audit Phase 1 vous dit par écrit **ce qui marche directement, ce qui nécessite réécriture, ce qui devrait être déprécié**. On ne promet pas que « tout se traduit comme par magie » — ça, c'est du marketing. On promet que « chaque script a un état de destination documenté avant qu'on y touche ».
+
+### Et nos jobs planifiés (cron / Task Scheduler / orchestrateur RPA) ?
+
+Les scripts OculiX tournent comme des process Java standards. Ils s'intègrent avec **n'importe quel scheduler** — cron, Task Scheduler Windows, GitHub Actions, Jenkins, Airflow, votre orchestrateur RPA existant (oui, vous pouvez faire tourner des scripts OculiX DEPUIS un Run Shell d'un orchestrateur en période de transition).
+
+### Et notre intégration CI ?
+
+Les scripts OculiX tournent en headless via le mode `-r script.py` en CI. On a intégré avec **Jenkins, GitHub Actions, GitLab CI, Azure Pipelines, TeamCity**. Le handover Phase 5 inclut le câblage de votre CI spécifique.
+
+### Comment se passe le handover opérateur ?
+
+Session dédiée Phase 5 (typiquement 1 jour on-site ou 2 demi-journées remote). Inclut : exécution manuelle de scripts, debug en cas d'échec, capture de nouvelles ancres image quand une UI change, monitoring des runs production, flow d'escalade. Sessions enregistrées livrées dans le runbook.
+
+### Quel est le prix ?
+
+Fixé par portée, pas par heure. L'audit Phase 1 est le livrable qui nous permet de coter le reste avec confiance. **Des engagements audit-only sont aussi possibles** (assessment de 1-2 semaines avec rapport écrit et estimation de migration) si vous voulez cadrer avant de vous engager sur le projet complet.
+
+### Peut-on rouler en shadow mode (ancien et nouveau en parallèle) ?
+
+Oui, et c'est l'approche recommandée pour la Phase 4. La plateforme RPA d'origine reste chaude, les scripts convertis tournent en parallèle, la sortie est comparée, vous décidez quand basculer par lot. On a supporté des périodes shadow de 1 semaine à 3 mois.
+
+### Et si on décide de faire marche arrière ?
+
+Vous possédez tout le code migré. La plateforme RPA d'origine n'est jamais touchée. Le rollback c'est **abandonner les nouveaux scripts et garder l'ancienne plateforme vivante**. Le travail effectué reste à vous, pas de lock-in contractuel.
+
+### Couvrez-vous la migration VERS OculiX depuis Selenium / Cypress ?
+
+Pas en offre standard — ce sont des outils de test web avec une portée différente. OculiX **complète** plutôt qu'il ne remplace (automation visuelle aux côtés du test DOM). Les conversations d'architecture sur leur combinaison font partie de l'engagement [Revue d'architecture](/fr/support/architecture-review/).
+
+## Nous contacter
+
+<CardGrid>
+  <LinkCard
+    title="Demander un engagement audit-only"
+    description="Assessment cadré sur 1-2 semaines avec rapport écrit et estimation de migration. Vous permet de décider sur le projet complet avec des données réelles."
+    href="mailto:contact@oculix.org?subject=Demande%20audit%20migration%20RPA"
+  />
+  <LinkCard
+    title="Demander un cadrage de migration complète"
+    description="Décrivez votre plateforme actuelle, le nombre approximatif de scripts et le calendrier souhaité. On revient avec une proposition par phases."
+    href="mailto:contact@oculix.org?subject=Migration%20RPA%20compl%C3%A8te%20vers%20OculiX"
+  />
+</CardGrid>
+
+🦎

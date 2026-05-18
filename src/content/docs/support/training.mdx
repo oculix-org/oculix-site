@@ -1,0 +1,206 @@
+---
+title: Team training
+description: Half-day to multi-day OculiX training, remote or on-site, tailored to your team's actual stack. Not a generic course catalog — we adapt to what you already use.
+---
+
+import { Aside, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+
+![Formats](https://img.shields.io/badge/Formats-Half--day%20to%202--day-blue?style=flat-square)
+![Delivery](https://img.shields.io/badge/Delivery-Remote%20or%20on--site-success?style=flat-square)
+![Languages](https://img.shields.io/badge/Languages-English%20%2F%20French-orange?style=flat-square)
+![Customization](https://img.shields.io/badge/Curriculum-Tailored%20to%20your%20stack-blueviolet?style=flat-square)
+
+</div>
+
+OculiX has a learning curve. The IDE is straightforward, but **visual automation as a discipline** has patterns and pitfalls that take time to internalize on your own. A structured training compresses that learning into hours instead of weeks.
+
+<Aside type="tip" title="In one line">
+  Not a generic OculiX 101 we deliver everywhere. We tailor each session to your team's actual stack, real scripts, real environment. Slides are 30%, hands-on is 70%.
+</Aside>
+
+## Formats
+
+<CardGrid>
+  <Card title="Half-day intro (4h)" icon="rocket">
+    Audience: a team adopting OculiX, needs to be productive next week.
+
+    Covers: visual automation concepts, OculiX IDE essentials, writing your first 5 scripts, debugging the inevitable first failures, where to find help.
+
+    Format: remote (Zoom / Teams), 4 hours with breaks. Up to 15 people. Recording included.
+  </Card>
+
+  <Card title="1-day immersive (7h)" icon="seti:notebook">
+    Audience: a team that needs to ship real OculiX in production within the month.
+
+    Covers: half-day intro PLUS Jython scripting patterns, error handling, image-anchoring strategies, OCR usage, integration with your CI, scheduling, monitoring.
+
+    Format: remote or on-site, 1 day. Up to 12 people for full engagement. Materials + recording included.
+  </Card>
+
+  <Card title="2-day deep dive (14h)" icon="seti:plan">
+    Audience: a team that will OWN OculiX in your organization, with growing complexity needs.
+
+    Covers: 1-day immersive PLUS advanced patterns (multi-monitor handling, scaling parallel execution, custom helpers in Java, performance tuning, Operix bridging, MCP audit module).
+
+    Format: on-site recommended (better for hands-on labs), 2 consecutive days. Up to 10 people. Includes a take-home runbook customized to your stack.
+  </Card>
+
+  <Card title="Multi-day workshop (3-5 days)" icon="approve-check">
+    Audience: a team migrating a significant volume of automation, or onboarding multiple squads.
+
+    Covers: the 2-day program PLUS dedicated time to migrate / build real scripts from your backlog under guidance, code review of existing scripts, architecture consultation.
+
+    Format: on-site only. Scope and curriculum co-designed with you upfront.
+  </Card>
+</CardGrid>
+
+## Who it's for
+
+Training has been delivered to:
+
+<CardGrid>
+  <Card title="QA teams onboarding visual testing" icon="approve-check">
+    Manual QA squads transitioning to scripted visual testing. Curriculum emphasizes test patterns, assertion strategies, false-positive management, CI integration.
+  </Card>
+
+  <Card title="Operations teams writing first automation" icon="rocket">
+    Ops engineers who never wrote test scripts but need to automate operator-facing workflows. Curriculum starts from scratch on scripting concepts, focuses on robustness and error reporting.
+  </Card>
+
+  <Card title="Development teams integrating OculiX" icon="seti:python">
+    Software developers embedding OculiX in their applications or test suites. Curriculum skips intro, focuses on API usage, advanced patterns, custom Java extensions, performance.
+  </Card>
+
+  <Card title="Security teams evaluating OculiX" icon="warning">
+    Security / compliance teams reviewing OculiX for regulated deployment. Curriculum focuses on architecture, MCP audit module, supply chain (SBOM), CVE response process, on-prem hardening.
+  </Card>
+</CardGrid>
+
+## Customization (what "tailored to your stack" means in practice)
+
+Before the session we collect, via a short questionnaire:
+
+- Your OculiX version and target version
+- Your target OS(es)
+- Your scripting language preference (Jython, Java, Robot Framework wrapper)
+- Your CI / scheduling stack (Jenkins, GitHub Actions, GitLab, Airflow, etc.)
+- Your monitoring / alerting setup
+- 3-5 representative real workflows your team needs to automate
+- Any existing patterns / conventions you already use
+
+The session is then **built around those answers**:
+
+- **Examples use your domain language** (not generic e-commerce examples if you're a healthcare org)
+- **Hands-on labs run in an environment similar to yours** (we set up a sandbox mirroring your tooling)
+- **CI integration demos use your actual CI**, not a generic one
+- **Take-home runbook references your team's tooling**, not generic OculiX URLs
+
+This is a real material customization, not just renaming variables in slides.
+
+## Materials provided
+
+<CardGrid>
+  <Card title="Slide deck" icon="document">
+    Customized PDF + PPTX, deliverable to your internal training library. Reusable internally without restriction.
+  </Card>
+
+  <Card title="Hands-on lab scripts" icon="seti:python">
+    Live-coded during the session, delivered as a git-cloneable folder. Includes the answer key for each exercise.
+  </Card>
+
+  <Card title="Recording" icon="seti:video">
+    Full session recording, delivered as MP4 + transcript. Yours to keep, reuse for onboarding new team members.
+  </Card>
+
+  <Card title="Custom runbook" icon="seti:notebook">
+    A take-home document tailored to your stack: how to run, debug, scale, monitor OculiX in YOUR specific environment. Updates as we discover edge cases together during the session.
+  </Card>
+
+  <Card title="Follow-up email channel" icon="email">
+    30 days of email follow-up included with every multi-day engagement. Your team can ask follow-up questions after the session as real production usage starts.
+  </Card>
+
+  <Card title="Slide source" icon="github">
+    For organizations training their own internal trainers, the slide source (PPTX with editable diagrams) is part of the deliverable. Build your own program from there.
+  </Card>
+</CardGrid>
+
+## Examples (anonymized)
+
+<CardGrid>
+  <Card title="French insurance group — 2 days, 8 engineers" icon="seti:plan">
+    Two consecutive days on-site in Paris, for a QA team migrating from manual UI testing to OculiX-driven regression. Day 1: fundamentals + IDE + first scripts on their actual application. Day 2: CI integration with Jenkins, scheduling, advanced error handling. Take-home runbook included their specific Jenkins pipeline templates.
+  </Card>
+
+  <Card title="APAC retail — half-day, 12 engineers" icon="rocket">
+    Remote half-day in Singapore time zone, for an ops team picking up OculiX from a senior engineer who was leaving. Compressed format focused on the 80% they'd need immediately. Follow-up 30 days later was a 1h Q&A as they hit real production questions.
+  </Card>
+
+  <Card title="US healthcare — 1 day, security team" icon="warning">
+    Remote 1-day deep dive for the InfoSec team of a US hospital network. Curriculum was 100% on architecture, MCP audit module, supply chain (SBOM, OWASP Dependency-Check), CVE response. Outcome: OculiX cleared internal security review.
+  </Card>
+
+  <Card title="German manufacturing — 3 days, mixed audience" icon="approve-check">
+    On-site multi-day workshop covering Day 1 fundamentals (operations team), Day 2 intermediate (dev team integrating OculiX), Day 3 advanced (the OculiX champion). 18 people total across days. Each day's audience tailored.
+  </Card>
+</CardGrid>
+
+## Frequently asked questions
+
+### How many people can join a session?
+
+| Format | Recommended max | Hard max |
+|---|---|---|
+| Half-day intro (remote) | 15 | 25 |
+| 1-day immersive (remote / on-site) | 12 | 20 |
+| 2-day deep (on-site) | 10 | 14 |
+| Multi-day workshop | depends on labs | depends |
+
+Beyond these numbers, hands-on labs become unwieldy and the value drops sharply. We can run **multiple consecutive sessions** for larger teams instead.
+
+### Can we record it for internal reuse?
+
+Yes, every session is recorded by default and you receive the MP4 + transcript. **Internal reuse is unrestricted** (use it for onboarding for years). External redistribution (publishing publicly) requires a quick conversation.
+
+### Do you train in French as well as English?
+
+Yes — the maintainer is a French-speaking QA Architect with 20+ years of experience in French enterprises (Groupama, STIME, defense, biotech, aerospace, retail). Sessions can be delivered in **English or French**, materials in the language of your choice.
+
+### What's the price?
+
+By format, scoped on the questionnaire answers. **Multi-day on-site engagements include travel** (which is a non-trivial cost depending on your location). Remote half-day is the most economical entry point.
+
+### Can we test the session quality first?
+
+We can do a **45-min sample lecture** on a topic of your choice, free, before you commit to a full engagement. Lets your team gauge the style and the technical depth.
+
+### Is there a discount for repeat sessions / multiple teams?
+
+Yes — second and subsequent sessions for the same organization (within 12 months) are at a reduced rate, because the curriculum customization carries over.
+
+### Do you offer "train the trainer"?
+
+Yes, that's the multi-day workshop with slide source delivered. After the workshop, your internal trainer can run subsequent sessions for new joiners using the materials we delivered, with optional Q&A back-channel to the maintainer.
+
+### What about certification?
+
+OculiX itself doesn't offer a formal certification (we don't run an exam program). Some clients self-certify their internal team using our materials as the curriculum baseline. If formal OculiX certification matters to your org, that's a roadmap conversation we're open to.
+
+## Get in touch
+
+<CardGrid>
+  <LinkCard
+    title="Request a training quote"
+    description="Tell us the audience, the format you're interested in, the timeline, and the rough number of attendees. We'll come back with a tailored proposal."
+    href="mailto:contact@oculix.org?subject=OculiX%20training%20request"
+  />
+  <LinkCard
+    title="Free 45-min sample lecture"
+    description="Want to gauge the style before committing? We'll do a sample session on a topic of your choice."
+    href="mailto:contact@oculix.org?subject=Free%20sample%20training%20session"
+  />
+</CardGrid>
+
+🦎

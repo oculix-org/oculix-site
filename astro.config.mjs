@@ -14,6 +14,9 @@ export default defineConfig({
       },
       favicon: '/favicon.ico',
       customCss: ['./src/styles/custom.css'],
+      components: {
+        SocialIcons: './src/components/SocialIcons.astro',
+      },
       defaultLocale: 'root',
       locales: {
         root: { label: 'English', lang: 'en' },
@@ -64,10 +67,22 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Help',
-          translations: { fr: 'Aide' },
+          label: 'Work with us',
+          translations: { fr: 'Travailler avec nous' },
           items: [
-            { slug: 'support/enterprise', label: 'Getting help', translations: { fr: 'Obtenir de l\'aide' } },
+            { slug: 'support/enterprise', label: 'Overview', translations: { fr: 'Aperçu' } },
+            { slug: 'support/production-support', label: 'Production support', translations: { fr: 'Support production' } },
+            { slug: 'support/migration-from-rpa', label: 'Migration from RPA', translations: { fr: 'Migration depuis RPA' } },
+            { slug: 'support/custom-development', label: 'Custom development', translations: { fr: 'Développement sur mesure' } },
+            { slug: 'support/training', label: 'Team training', translations: { fr: 'Formation équipe' } },
+            { slug: 'support/architecture-review', label: 'Architecture review', translations: { fr: 'Revue d\'architecture' } },
+            { slug: 'support/security', label: 'Security & compliance', translations: { fr: 'Sécurité & conformité' } },
+          ],
+        },
+        {
+          label: 'About',
+          translations: { fr: 'À propos' },
+          items: [
             { slug: 'showcase', label: 'Adoption & showcase', translations: { fr: 'Adoption & vitrine' } },
           ],
         },
