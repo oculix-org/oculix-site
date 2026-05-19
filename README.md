@@ -1,4 +1,4 @@
-# oculix.org — Official OculiX website
+# [oculix.org — Official OculiX website](https://oculix.org)
 
 Built with [Astro](https://astro.build) + [Starlight](https://starlight.astro.build). Deployed on Cloudflare Pages.
 
